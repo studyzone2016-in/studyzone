@@ -1,71 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <title>Study ZONE – A Self Study Centre</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-</head>
+  <title>Study ZONE – Trusted Self-Study Centre in Dombivli Since 2016</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
+    body {
+      line-height: 1.6;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background-color: #004aad;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1em;
+      font-weight: 500;
+    }
+
+    nav {
+      background-color: #0066cc;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      padding: 10px 15px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #0050a0;
+      border-radius: 5px;
+    }
+
+    section {
+      padding: 20px;
+      margin: 10px auto;
+      background: white;
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #004aad;
+      margin-bottom: 10px;
+    }
+
+    .divider {
+      border-bottom: 1px solid #ddd;
+      margin: 20px 0;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .flex-item {
+      flex: 1 1 200px;
+      padding: 10px;
+      background-color: #f1f8ff;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #004aad;
+      color: #fff;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #002f70;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+      background-color: #004aad;
+      color: white;
+    }
+
+    @media(max-width: 600px){
+      nav {
+        flex-direction: column;
+      }
+
+      .flex-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
 <body>
 
-  <header>
-    <h1>Study ZONE</h1>
-    <p>
-      A Self Study Centre, Open 365 Days
-    </p>
-    <p>
-      Morning 7:00 AM to Evening 10:00 PM | Trusted Since 2016
-    </p>
-  </header>
+<header>
+  <h1>Study ZONE – Trusted Self-Study Centre in Dombivli Since 2016</h1>
+  <p>Open Daily: 7:00 AM – 10:00 PM</p>
+</header>
 
-  <section>
-    <h2>About Us</h2>
-    <p>
-      Study ZONE provides a quiet, disciplined, and professional self-study
-      environment designed for focused learning and trusted by students since 2016.
-    </p>
-  </section>
+<nav>
+  <a href="#subscriptions">Subscriptions</a>
+  <a href="#membership">Membership</a>
+  <a href="#locations">Locations</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section>
-    <h2>Our Branches</h2>
-    <ul>
-      <li>Dombivli West</li>
-      <li>Dombivli East</li>
-    </ul>
-  </section>
+<section id="subscriptions">
+  <h2>Flexible Study Subscriptions</h2>
+  <p>Study your way! Choose a plan that fits your schedule:</p>
+  <div class="flex-container">
+    <div class="flex-item">Single Day</div>
+    <div class="flex-item">Saturdays & Sundays Only</div>
+    <div class="flex-item">Full Month</div>
+  </div>
+  <p>Available fixed study slots per day: 2 Hours | 5 Hours | 10 Hours | 15 Hours</p>
+</section>
 
-  <section>
-    <h2>Facilities</h2>
-    <ul>
-      <li>Fully Air-Conditioned Reading Rooms</li>
-      <li>Dedicated Study Desk with Power Plug</li>
-      <li>High-Speed Internet Access</li>
-      <li>RO Purified Drinking Water</li>
-      <li>Clean Washrooms</li>
-      <li>CCTV Surveillance for Safety</li>
-      <li>Power Backup</li>
-    </ul>
-  </section>
+<section id="membership">
+  <h2>Membership</h2>
+  <p>Get started with a one-time membership and enjoy access to any Study ZONE centre.</p>
+  <ul>
+    <li>Simple registration</li>
+    <li>Flexible plans</li>
+    <li>Student-friendly environment</li>
+  </ul>
+  <a class="btn" href="YOUR_GOOGLE_FORM_LINK" target="_blank">Register Now</a>
+</section>
 
-  <section>
-    <h2>Subscription Plans</h2>
-    <p>
-      We offer flexible subscription plans designed to suit different study needs.
-      Daily, monthly, and long-term options are available.
-    </p>
-    <p>
-      For current pricing and seat availability, please contact us directly.
-    </p>
-  </section>
+<section id="locations">
+  <h2>Our Dombivli Locations</h2>
+  <div class="flex-container">
+    <div class="flex-item">
+      <h3>📍 Dombivli West</h3>
+      <p>3-minute walk from Dombivli Railway Station</p>
+      <p>Shop No. 3, Joshi Chowk, near Swami Vivekanand Vidya Mandir School</p>
+      <a class="btn" href="DOMBIVLI_WEST_PAGE_LINK">View Facilities & Photos</a>
+    </div>
+    <div class="flex-item">
+      <h3>📍 Dombivli East (MIDC)</h3>
+      <p>Located within Burger King premises</p>
+      <p>GNP Arcadia, opposite Pendharkar College</p>
+      <a class="btn" href="DOMBIVLI_EAST_PAGE_LINK">View Facilities & Photos</a>
+    </div>
+  </div>
+</section>
 
-  <section>
-    <h2>Contact Us</h2>
-    <p>📍 Locations: Dombivli West & Dombivli East</p>
-    <p>📞 Phone / WhatsApp: +91-XXXXXXXXXX</p>
-    <p>✉️ Email: studyzone@email.com</p>
-  </section>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>For admission and further queries, WhatsApp us at: <a href="https://wa.me/YOUR_NUMBER" target="_blank">+91-XXXXXXXXXX</a></p>
+</section>
+
+<footer>
+  &copy; 2016 - 2025 Study ZONE. All Rights Reserved.
+</footer>
 
 </body>
 </html>
