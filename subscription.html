@@ -9,23 +9,22 @@
   body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(135deg, #e6f0ff, #f4f8ff);
+    background: linear-gradient(135deg, #e6f0ff, #f5f9ff);
     color: #1f2937;
   }
 
-  .wrapper {
+  .container {
     max-width: 1100px;
     margin: auto;
     padding: 24px;
   }
 
   .header {
-    text-align: center;
     background: linear-gradient(135deg, #1e3a8a, #2563eb);
     color: #fff;
-    padding: 22px;
+    padding: 24px;
     border-radius: 14px;
-    margin-bottom: 25px;
+    text-align: center;
     box-shadow: 0 10px 25px rgba(30,58,138,0.25);
   }
 
@@ -34,14 +33,9 @@
     font-size: 26px;
   }
 
-  .header p {
-    margin-top: 6px;
-    font-size: 14px;
-    opacity: 0.9;
-  }
-
   .card {
     background: #ffffff;
+    margin-top: 24px;
     border-radius: 14px;
     padding: 20px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.06);
@@ -75,28 +69,29 @@
     color: #1e40af;
   }
 
-  .rules {
-    margin-top: 24px;
-    background: linear-gradient(135deg, #f0f6ff, #ffffff);
-    border-left: 6px solid #2563eb;
-    padding: 18px;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+  .section {
+    margin-top: 26px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
   }
 
-  .rules h2 {
+  .section h2 {
     margin-top: 0;
-    color: #1e3a8a;
     font-size: 18px;
+    color: #1e3a8a;
+    border-left: 5px solid #2563eb;
+    padding-left: 10px;
   }
 
-  .rules ul {
-    margin: 0;
+  ul {
     padding-left: 18px;
+    margin: 10px 0 0;
     font-size: 14px;
   }
 
-  .rules li {
+  ul li {
     margin-bottom: 8px;
   }
 
@@ -114,13 +109,14 @@
 
 <body>
 
-<div class="wrapper">
+<div class="container">
 
+  <!-- Header -->
   <div class="header">
-    <h1>Study ZONE Subscription Plans</h1>
-    <p>Flexible, structured plans designed for focused self-study</p>
+    <h1>Subscription Plans</h1>
   </div>
 
+  <!-- Subscription Table -->
   <div class="card">
     <table>
       <tr>
@@ -150,38 +146,40 @@
       <tr>
         <td class="plan">Mini Plan</td>
         <td>2 Hours</td>
-        <td>Morning (7–9 AM) or Evening (8–10 PM)</td>
+        <td>Morning (7:00–9:00 AM) or Evening (8:00–10:00 PM)</td>
       </tr>
 
       <tr>
         <td class="plan">Single Day Plan</td>
         <td>15 Hours</td>
-        <td>Full-day access</td>
+        <td>7:00 AM – 10:00 PM (No restrictions)</td>
       </tr>
 
       <tr>
         <td class="plan">Weekend Plan</td>
         <td>15 Hours / Day</td>
-        <td>Saturday & Sunday</td>
-      </tr>
-
-      <tr>
-        <td class="plan">Customized Plan</td>
-        <td>As Approved</td>
-        <td>Based on individual requirements</td>
+        <td>Saturday & Sunday (7:00 AM – 10:00 PM)</td>
       </tr>
     </table>
   </div>
 
-  <div class="rules">
+  <!-- Standard Time Slots -->
+  <div class="section">
+    <h2>Standard Time Slots</h2>
+    <ul>
+      <li><strong>Morning:</strong> 7:00 AM – 12:00 PM</li>
+      <li><strong>Afternoon:</strong> 12:00 PM – 5:00 PM</li>
+      <li><strong>Evening:</strong> 5:00 PM – 10:00 PM</li>
+    </ul>
+  </div>
+
+  <!-- Notes & Rules -->
+  <div class="section">
     <h2>Notes & Rules</h2>
     <ul>
-      <li>Members must strictly follow the entry and exit timings of selected slots.</li>
+      <li>Members must follow the entry and exit timings of selected slots.</li>
       <li>Slot changes during an active subscription require management approval.</li>
       <li>Single Day Plan requires 24-hour advance booking and is subject to availability.</li>
-      <li>Weekend Plan is valid only on Saturdays and Sundays.</li>
-      <li>Customized Plans depend on feasibility and seat availability.</li>
-      <li>All plans are governed by Study ZONE policies and code of conduct.</li>
     </ul>
   </div>
 
