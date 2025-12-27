@@ -1,194 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Study ZONE – Trusted Self-Study Centre in Dombivli Since 2016</title>
-  <style>
-    /* Reset & base */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study ZONE – Trusted Self-Study Centre Since 2016</title>
 
-    body {
-      line-height: 1.6;
-      background-color: #f7f7f7;
-      color: #333;
-    }
+<style>
+:root {
+  --primary:#0f766e;
+  --dark:#0f172a;
+  --light:#f8fafc;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
 
-    header {
-      background-color: #004aad;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
+body {
+  height:100vh;
+  background:linear-gradient(135deg,#f0fdfa,#ecfeff);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
 
-    header h1 {
-      font-size: 1.8em;
-      margin-bottom: 10px;
-    }
+.container {
+  width:100%;
+  max-width:420px;
+  height:100vh;
+  padding:16px;
+  display:grid;
+  grid-template-rows:auto auto auto auto 1fr auto;
+  gap:12px;
+}
 
-    header p {
-      font-size: 1em;
-      font-weight: 500;
-    }
+/* Header */
+header {
+  text-align:center;
+}
+header h1 {
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--dark);
+}
+header p {
+  font-size:.9rem;
+  color:#475569;
+}
 
-    nav {
-      background-color: #0066cc;
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 0;
-      flex-wrap: wrap;
-    }
+/* Cards */
+.card {
+  background:white;
+  border-radius:14px;
+  padding:12px;
+  box-shadow:0 6px 20px rgba(0,0,0,.06);
+}
 
-    nav a {
-      color: white;
-      padding: 10px 15px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+/* Membership */
+.membership {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.9rem;
+}
+.membership span {
+  color:#475569;
+}
+.membership b {
+  color:var(--primary);
+}
 
-    nav a:hover {
-      background-color: #0050a0;
-      border-radius: 5px;
-    }
+/* Subscription */
+.subs h3 {
+  font-size:.95rem;
+  margin-bottom:6px;
+}
+.tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.tag {
+  background:#ecfeff;
+  color:#0369a1;
+  font-size:.75rem;
+  padding:4px 8px;
+  border-radius:20px;
+}
 
-    section {
-      padding: 20px;
-      margin: 10px auto;
-      background: white;
-      max-width: 900px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-    }
+/* Locations */
+.locations a {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  text-decoration:none;
+  color:var(--dark);
+  font-size:.9rem;
+}
+.locations small {
+  color:#64748b;
+}
 
-    h2 {
-      color: #004aad;
-      margin-bottom: 10px;
-    }
-
-    .divider {
-      border-bottom: 1px solid #ddd;
-      margin: 20px 0;
-    }
-
-    .flex-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .flex-item {
-      flex: 1 1 200px;
-      padding: 10px;
-      background-color: #f1f8ff;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #004aad;
-      color: #fff;
-      border-radius: 5px;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #002f70;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 20px;
-      background-color: #004aad;
-      color: white;
-    }
-
-    @media(max-width: 600px){
-      nav {
-        flex-direction: column;
-      }
-
-      .flex-container {
-        flex-direction: column;
-      }
-    }
-  </style>
+/* CTA */
+.cta {
+  display:grid;
+  gap:8px;
+}
+button {
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  font-size:.95rem;
+  font-weight:600;
+  cursor:pointer;
+}
+.book {
+  background:var(--primary);
+  color:white;
+}
+.whatsapp {
+  background:#25d366;
+  color:white;
+}
+</style>
 </head>
+
 <body>
 
-<header>
-  <h1>Study ZONE – Trusted Self-Study Centre in Dombivli Since 2016</h1>
-  <p>Open Daily: 7:00 AM – 10:00 PM</p>
-</header>
+<div class="container">
 
-<nav>
-  <a href="#subscriptions">Subscriptions</a>
-  <a href="#membership">Membership</a>
-  <a href="#locations">Locations</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <!-- Header -->
+  <header>
+    <h1>Study ZONE</h1>
+    <p>Trusted Self-Study Centre • Since 2016<br>
+       Open Daily: 7:00 AM – 10:00 PM</p>
+  </header>
 
-<section id="subscriptions">
-  <h2>Flexible Study Subscriptions</h2>
-  <p>Study your way! Choose a plan that fits your schedule:</p>
-  <div class="flex-container">
-    <div class="flex-item">Single Day</div>
-    <div class="flex-item">Saturdays & Sundays Only</div>
-    <div class="flex-item">Full Month</div>
+  <!-- Membership -->
+  <div class="card membership">
+    <span>Membership</span>
+    <b>One-Time Enrollment</b>
   </div>
-  <p>Available fixed study slots per day: 2 Hours | 5 Hours | 10 Hours | 15 Hours</p>
-</section>
 
-<section id="membership">
-  <h2>Membership</h2>
-  <p>Get started with a one-time membership and enjoy access to any Study ZONE centre.</p>
-  <ul>
-    <li>Simple registration</li>
-    <li>Flexible plans</li>
-    <li>Student-friendly environment</li>
-  </ul>
-  <a class="btn" href="YOUR_GOOGLE_FORM_LINK" target="_blank">Register Now</a>
-</section>
-
-<section id="locations">
-  <h2>Our Dombivli Locations</h2>
-  <div class="flex-container">
-    <div class="flex-item">
-      <h3>📍 Dombivli West</h3>
-      <p>3-minute walk from Dombivli Railway Station</p>
-      <p>Shop No. 3, Joshi Chowk, near Swami Vivekanand Vidya Mandir School</p>
-      <a class="btn" href="DOMBIVLI_WEST_PAGE_LINK">View Facilities & Photos</a>
-    </div>
-    <div class="flex-item">
-      <h3>📍 Dombivli East (MIDC)</h3>
-      <p>Located within Burger King premises</p>
-      <p>GNP Arcadia, opposite Pendharkar College</p>
-      <a class="btn" href="DOMBIVLI_EAST_PAGE_LINK">View Facilities & Photos</a>
+  <!-- Subscriptions -->
+  <div class="card subs">
+    <h3>Flexible Study Subscriptions</h3>
+    <div class="tags">
+      <span class="tag">Single Day</span>
+      <span class="tag">Sat–Sun</span>
+      <span class="tag">Full Month</span>
+      <span class="tag">2H</span>
+      <span class="tag">5H</span>
+      <span class="tag">10H</span>
+      <span class="tag">15H</span>
     </div>
   </div>
-</section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>For admission and further queries, WhatsApp us at: <a href="https://wa.me/YOUR_NUMBER" target="_blank">+91-XXXXXXXXXX</a></p>
-</section>
+  <!-- Locations -->
+  <div class="card locations">
+    <a href="dombivli-west.html">
+      <div>
+        📍 Dombivli West<br>
+        <small>3-min walk from Station</small>
+      </div>
+      ➜
+    </a>
+    <a href="dombivli-east.html">
+      <div>
+        📍 Dombivli East (MIDC)<br>
+        <small>Opp. Pendharkar College</small>
+      </div>
+      ➜
+    </a>
+  </div>
 
-<footer>
-  &copy; 2016 - 2025 Study ZONE. All Rights Reserved.
-</footer>
+  <!-- Spacer -->
+  <div></div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <button class="book" onclick="window.open('https://forms.gle/YOUR_GOOGLE_FORM','_blank')">
+      Book Your Seat
+    </button>
+    <button class="whatsapp" onclick="window.open('https://wa.me/91XXXXXXXXXX','_blank')">
+      WhatsApp Enquiry
+    </button>
+  </div>
+
+</div>
 
 </body>
 </html>
