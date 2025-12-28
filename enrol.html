@@ -54,11 +54,6 @@ textarea {
     resize: vertical;
 }
 
-.declaration {
-    margin-top: 20px;
-    font-size: 13px;
-}
-
 button {
     width: 100%;
     margin-top: 25px;
@@ -90,74 +85,59 @@ button:hover {
     <h1>Enrolment Request</h1>
     <p class="subtext">Submit your subscription request. Our team will confirm seat availability.</p>
 
-    <!-- Replace FORM_ID and entry IDs with your Google Form details -->
     <form action="https://docs.google.com/forms/d/e/1FAIpQLSfVFer68dLg-CG8ycmxc2beA-4xHdPHAKbkGDOVtbgaGKCdiA/formResponse"
-          method="POST" target="hidden_iframe">
+      method="POST"
+      onsubmit="return submitForm();">
 
-        <label>Full Name *</label>
-        <input type="text" name="entry.457102072" >
+<input type="hidden" name="fvv" value="1">
+<input type="hidden" name="pageHistory" value="0">
 
-        <label>Mobile Number *</label>
-        <input type="tel" name="entry.1568043505" >
+<label>Full Name *</label>
+<input type="text" name="entry.457102072" required>
 
-        <label>Email ID</label>
-        <input type="email" name="entry.371981325">
+<label>Mobile Number *</label>
+<input type="tel" name="entry.1568043505" required>
 
-        <label>Address *</label>
-        <textarea name="entry.517756019" rows="2" ></textarea>
+<label>Email ID</label>
+<input type="email" name="entry.371981325">
 
-        <label>City *</label>
-        <input type="text" name="entry.620029132" >
+<label>Address *</label>
+<textarea name="entry.517756019" rows="2" required></textarea>
 
-        <label>Exam Preparing For *</label>
-        <input type="text" name="entry.998781507" placeholder="e.g. NEET / UPSC / CA / SSC" >
+<label>City *</label>
+<input type="text" name="entry.620029132" required>
 
-        <label>Member Type *</label>
-        <select name="entry.350049249" >
-            <option value="">Select</option>
-            <option value="First Time">First Time</option>
-<option value="Existing Member">Existing Member</option>
-        </select>
+<label>Exam Preparing For *</label>
+<input type="text" name="entry.998781507" required>
 
-        <label>Preferred Branch *</label>
-        <select name="entry.1265523811" >
-            <option value="">Select</option>
-            <option>Dombivli West</option>
-            <option>Dombivli East (MIDC)</option>
-        </select>
+<label>Member Type *</label>
+<select name="entry.350049249" required>
+    <option value="">Select</option>
+    <option value="First Time">First Time</option>
+    <option value="Existing Member">Existing Member</option>
+</select>
 
-        <label>Preferred Plan *</label>
-        <select name="entry.792401209" >
-            <option value="">Select</option>
+<label>Preferred Branch *</label>
+<select name="entry.1265523811" required>
+    <option value="">Select</option>
+    <option value="Dombivli West">Dombivli West</option>
+    <option value="Dombivli East (MIDC)">Dombivli East (MIDC)</option>
+</select>
 
-            <option>Max Plan – Full Day – 7 AM to 10 PM – Entry/Exit No Restriction – 15 Hrs Batch</option>
+<label>Preferred Plan *</label>
+<select name="entry.792401209" required>
+    <option value="">Select</option>
+    <option value="Max Plan – Full Day">Max Plan – Full Day</option>
+    <option value="Light Plan – Morning Slot">Light Plan – Morning Slot</option>
+    <option value="Light Plan – Afternoon Slot">Light Plan – Afternoon Slot</option>
+    <option value="Light Plan – Evening Slot">Light Plan – Evening Slot</option>
+</select>
 
-            <option>Light Plan – Morning Slot – 7 AM to 12 PM – Entry/Exit Restricted – 5 Hrs Batch</option>
-            <option>Light Plan – Afternoon Slot – 12 PM to 5 PM – Entry/Exit Restricted – 5 Hrs Batch</option>
-            <option>Light Plan – Evening Slot – 5 PM to 10 PM – Entry/Exit Restricted – 5 Hrs Batch</option>
+<label>Additional Notes</label>
+<textarea name="entry.1712322260" rows="3"></textarea>
 
-            <option>Light Flexi Plan – Morning + Afternoon – 7 AM to 5 PM – Entry/Exit Restricted – 10 Hrs Batch</option>
-            <option>Light Flexi Plan – Morning + Evening – 7 AM to 12 PM & 5 PM to 10 PM – Entry/Exit Restricted – 10 Hrs Batch</option>
-            <option>Light Flexi Plan – Afternoon + Evening – 12 PM to 10 PM – Entry/Exit Restricted – 10 Hrs Batch</option>
-
-            <option>Weekend Special – Saturday & Sunday Only – Entry/Exit No Restriction – 15 Hrs Batch</option>
-
-            <option>Mini Plan – Morning Slot – 7 AM to 9 AM – Entry/Exit Restricted – 2 Hrs Batch</option>
-            <option>Mini Plan – Evening Slot – 8 PM to 10 PM – Entry/Exit Restricted – 2 Hrs Batch</option>
-
-            <option>Single Day Plan – Full Day – 7 AM to 10 PM – Entry/Exit No Restriction – 15 Hrs Batch</option>
-        </select>
-
-        <label>Additional Notes</label>
-        <textarea name="entry.1712322260" rows="3"></textarea>
-
-        <div class="declaration">
-            <input type="checkbox" >
-            I understand this is a subscription request and seat confirmation is subject to availability.
-        </div>
-
-        <button type="submit">Submit Subscription Request</button>
-    </form>
+<button type="submit">Submit Subscription Request</button>
+</form>
 
     <iframe name="hidden_iframe" style="display:none;"></iframe>
 
