@@ -6,6 +6,7 @@
 <title>Study ZONE – Trusted Since 2016</title>
 
 <style>
+/* ---------- Global Reset ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -14,99 +15,120 @@
 }
 
 body {
-  height: 100vh;
-  background: #f8fafc;
+  background: linear-gradient(135deg, #e6f0ff, #f5f9ff);
   color: #0f172a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
+/* ---------- Layout ---------- */
 .container {
-  width: 100%;
-  max-width: 420px;
-  height: 100vh;
-  padding: 18px 16px;
-  display: grid;
-  grid-template-rows: auto auto auto auto auto;
-  gap: 12px;
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
 }
 
-/* Header */
-header {
+/* ---------- Hero Header (Desktop + Mobile) ---------- */
+.hero {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: #ffffff;
+  padding: 28px 20px;
+  border-radius: 16px;
   text-align: center;
+  box-shadow: 0 10px 25px rgba(30,58,138,0.25);
 }
 
-header h1 {
-  font-size: 1.35rem;
+.hero h1 {
+  font-size: 1.6rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
 }
 
-header p {
-  font-size: 0.78rem;
-  color: #475569;
-  margin-top: 4px;
-}
-
-/* Sections */
-.section {
-  background: #eef2ff;
-  border-radius: 14px;
-  padding: 12px;
-}
-
-/* Titles */
-.section h2 {
+.hero p {
   font-size: 0.85rem;
-  font-weight: 500;
-  margin-bottom: 4px;
-  color: #1e3a8a;
+  margin-top: 6px;
+  opacity: 0.95;
 }
 
-.section p {
-  font-size: 0.75rem;
+/* ---------- Sections Grid ---------- */
+.sections {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: #eef2ff;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.card h2 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 6px;
+}
+
+.card p,
+.card div {
+  font-size: 0.78rem;
   color: #334155;
 }
 
-/* Buttons */
+/* ---------- Buttons ---------- */
 .btn {
-  display: block;
-  margin-top: 8px;
-  padding: 9px;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 14px;
   border-radius: 12px;
   text-align: center;
   text-decoration: none;
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
   background: #2563eb;
   color: #ffffff;
+  box-shadow: 0 6px 16px rgba(37,99,235,0.35);
+}
+
+.btn:hover {
+  background: #1e40af;
 }
 
 .btn.secondary {
   background: #dbeafe;
   color: #1e3a8a;
+  box-shadow: none;
 }
 
-/* Locations */
+/* ---------- Locations ---------- */
 .location {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   margin-top: 4px;
   color: #1e293b;
 }
 
-/* Steps */
+/* ---------- Steps ---------- */
 .steps {
-  font-size: 0.72rem;
-  line-height: 1.4;
-  color: #1e293b;
+  font-size: 0.75rem;
+  line-height: 1.5;
 }
 
-/* Footer */
+/* ---------- Footer ---------- */
 footer {
+  margin-top: 26px;
   text-align: center;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: #64748b;
+}
+
+/* ---------- Desktop Enhancement ---------- */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 0.95rem;
+  }
 }
 </style>
 </head>
@@ -115,37 +137,42 @@ footer {
 
 <div class="container">
 
-  <!-- Header -->
-  <header>
+  <!-- Hero Header -->
+  <div class="hero">
     <h1>Study ZONE</h1>
     <p>Trusted Self-Study Centre in Dombivli Since 2016</p>
     <p>Open Daily · 7:00 AM – 10:00 PM</p>
-  </header>
-
-  <!-- Subscriptions -->
-  <div class="section">
-    <h2>Subscriptions</h2>
-    <p>Flexible study plans for focused learning</p>
-    <a href="subscription.html" class="btn">View Plans</a>
   </div>
 
-  <!-- Locations -->
-  <div class="section">
-    <h2>Our Dombivli Branches</h2>
-    <div class="location">West · 3-min walk from railway station</div>
-    <div class="location">East (MIDC) · Opp. Pendharkar College</div>
-    <a href="#" class="btn secondary">Maps & Facilities</a>
-  </div>
+  <!-- Sections -->
+  <div class="sections">
 
-  <!-- Enrol -->
-  <div class="section">
-    <h2>Enrol</h2>
-    <div class="steps">
-      1. One-time membership<br>
-      2. Select branch<br>
-      3. Choose plan
+    <!-- Subscriptions -->
+    <div class="card">
+      <h2>Subscriptions</h2>
+      <p>Flexible study plans designed for focused learning</p>
+      <a href="subscription.html" class="btn">View Subscription Plans</a>
     </div>
-    <a href="#" class="btn">Enrol Now</a>
+
+    <!-- Locations -->
+    <div class="card">
+      <h2>Our Dombivli Branches</h2>
+      <div class="location">Dombivli West · 3-min walk from railway station</div>
+      <div class="location">Dombivli East (MIDC) · Opp. Pendharkar College</div>
+      <a href="maps.html" class="btn secondary">Maps & Facilities</a>
+    </div>
+
+    <!-- Enrol -->
+    <div class="card">
+      <h2>Enrol</h2>
+      <div class="steps">
+        1. One-time membership<br>
+        2. Select branch<br>
+        3. Choose a plan
+      </div>
+      <a href="https://forms.gle/your-form-link" class="btn">Enrol Now</a>
+    </div>
+
   </div>
 
   <!-- Footer -->

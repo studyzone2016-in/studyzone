@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Location, Facilities & Photos – Study ZONE</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.container {
+  max-width: 420px;
+  margin: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Header */
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+header p {
+  font-size: 0.75rem;
+  color: #475569;
+  margin-top: 4px;
+}
+
+/* Section */
+.section {
+  background: #eef2ff;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.section h2 {
+  font-size: 0.85rem;
+  color: #1e3a8a;
+  margin-bottom: 6px;
+}
+
+.address {
+  font-size: 0.72rem;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+/* Map */
+.map iframe {
+  width: 100%;
+  height: 160px;
+  border: 0;
+  border-radius: 10px;
+}
+
+/* Facilities */
+.facilities {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: #1e293b;
+  margin-top: 8px;
+}
+
+/* Photos */
+.photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.photos img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #cbd5f5;
+}
+
+/* Back button */
+.btn {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  background: #2563eb;
+  color: #ffffff;
+  margin-top: 6px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.65rem;
+  color: #64748b;
+  margin-top: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <h1>Location, Facilities & Photos</h1>
+    <p>Study ZONE · Dombivli Branches</p>
+  </header>
+
+  <!-- Dombivli West -->
+  <div class="section">
+    <h2>Dombivli West</h2>
+    <div class="address">
+      Sop No. 3, Joshi Chowk, near Swami Vivekanand Vidya Mandir School<br>
+      3-minute walk from Dombivli Railway Station
+    </div>
+
+    <div class="map">
+      <iframe 
+     src="https://www.google.com/maps/dir//Shop+NO+02,+Sunderbai+Hall+Compound,+Joshi+Chowk,+Shastri+Nagar.+Landmark:+Swami+Vivekanand+School+%26+Hari+OM+Sweet+Mart,+Dombivli,+Maharashtra+421202/@19.2151552,73.1316224,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3be7be21dcee5c63:0xc37a34e8eaa042e3!2m2!1d73.0836932!2d19.2189258?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div class="facilities">
+      ✔ Fully Air-Conditioned<br>
+      ✔ Individual Study Desks with Power Plug<br>
+      ✔ High-Speed Internet<br>
+      ✔ RO Drinking Water<br>
+      ✔ CCTV Surveillance<br>
+      ✔ Separate Washrooms
+    </div>
+
+    <div class="photos">
+      <img src="images/west1.jpg" alt="West Branch">
+      <img src="images/west2.jpg" alt="West Branch">
+      <img src="images/west3.jpg" alt="West Branch">
+    </div>
+  </div>
+
+  <!-- Dombivli East -->
+  <div class="section">
+    <h2>Dombivli East (MIDC)</h2>
+    <div class="address">
+      Opp. Pendharkar College, MIDC Area, Dombivli East
+    </div>
+
+    <div class="map">
+      <iframe 
+        src="https://www.google.com/maps/place/Study+Zone+(Self+Study+Centre)+-+Dombivli+East/@19.2129766,72.4956053,10z/data=!4m10!1m2!2m1!1sstudy+zone+west!3m6!1s0x3be795713b05408d:0x6a3626cc2dc00539!8m2!3d19.2129766!4d73.1053465!15sCg9zdHVkeSB6b25lIHdlc3RaESIPc3R1ZHkgem9uZSB3ZXN0kgEHbGlicmFyeZoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VObE1qbHhTamQzUlJBQuABAPoBBAgiEDE!16s%2Fg%2F11s85pmd76?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div class="facilities">
+      ✔ Silent Study Environment<br>
+      ✔ Air-Conditioned Reading Room<br>
+      ✔ Dedicated Book Shelf per Desk<br>
+      ✔ Inverter Power Backup<br>
+      ✔ Two-Wheeler Parking
+    </div>
+
+    <div class="photos">
+      <img src="images/east1.jpg" alt="East Branch">
+      <img src="images/east2.jpg" alt="East Branch">
+      <img src="images/east3.jpg" alt="East Branch">
+    </div>
+  </div>
+
+  <!-- Back -->
+  <a href="index.html" class="btn">← Back to Home</a>
+
+  <footer>
+    © Study ZONE · Trusted Since 2016
+  </footer>
+
+</div>
+
+</body>
+</html>

@@ -26,6 +26,25 @@
     border-radius: 14px;
     text-align: center;
     box-shadow: 0 10px 25px rgba(30,58,138,0.25);
+    position: relative;
+  }
+
+  .back-btn {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background: #ffffff;
+    color: #1e3a8a;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  .back-btn:hover {
+    background: #e0ecff;
   }
 
   .header h1 {
@@ -60,10 +79,6 @@
     font-size: 14px;
   }
 
-  tr:last-child td {
-    border-bottom: none;
-  }
-
   .plan {
     font-weight: 600;
     color: #1e40af;
@@ -87,7 +102,6 @@
 
   ul {
     padding-left: 18px;
-    margin: 10px 0 0;
     font-size: 14px;
   }
 
@@ -99,24 +113,23 @@
     .header h1 {
       font-size: 22px;
     }
-    th, td {
-      font-size: 13px;
-      padding: 12px;
+    .back-btn {
+      position: static;
+      display: inline-block;
+      margin-bottom: 12px;
     }
   }
 </style>
 </head>
 
 <body>
-
 <div class="container">
 
-  <!-- Header -->
   <div class="header">
+    <a href="index.html" class="back-btn">⬅ Back to Home</a>
     <h1>Subscription Plans</h1>
   </div>
 
-  <!-- Subscription Table -->
   <div class="card">
     <table>
       <tr>
@@ -124,46 +137,39 @@
         <th>Access</th>
         <th>Time Slots</th>
       </tr>
-
       <tr>
         <td class="plan">Max Plan</td>
         <td>15 Hours</td>
         <td>7:00 AM – 10:00 PM (No restrictions)</td>
       </tr>
-
       <tr>
         <td class="plan">Light Plan</td>
         <td>5 Hours</td>
         <td>Any one slot: Morning / Afternoon / Evening</td>
       </tr>
-
       <tr>
         <td class="plan">Light Flexi Plan</td>
         <td>10 Hours</td>
         <td>Any two slots: Morning / Afternoon / Evening</td>
       </tr>
-
       <tr>
         <td class="plan">Mini Plan</td>
         <td>2 Hours</td>
         <td>Morning (7:00–9:00 AM) or Evening (8:00–10:00 PM)</td>
       </tr>
-
       <tr>
         <td class="plan">Single Day Plan</td>
         <td>15 Hours</td>
-        <td>7:00 AM – 10:00 PM (No restrictions)</td>
+        <td>7:00 AM – 10:00 PM</td>
       </tr>
-
       <tr>
         <td class="plan">Weekend Plan</td>
         <td>15 Hours / Day</td>
-        <td>Saturday & Sunday (7:00 AM – 10:00 PM)</td>
+        <td>Saturday & Sunday</td>
       </tr>
     </table>
   </div>
 
-  <!-- Standard Time Slots -->
   <div class="section">
     <h2>Standard Time Slots</h2>
     <ul>
@@ -173,17 +179,15 @@
     </ul>
   </div>
 
-  <!-- Notes & Rules -->
   <div class="section">
     <h2>Notes & Rules</h2>
     <ul>
-      <li>Members must follow the entry and exit timings of selected slots.</li>
-      <li>Slot changes during an active subscription require management approval.</li>
-      <li>Single Day Plan requires 24-hour advance booking and is subject to availability.</li>
+      <li>Entry and exit must follow selected slots.</li>
+      <li>Slot changes require management approval.</li>
+      <li>Single Day Plan requires advance booking.</li>
     </ul>
   </div>
 
 </div>
-
 </body>
 </html>
