@@ -9,82 +9,158 @@
   body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #f5f9ff;
-    color: #1f2937;
+    background: #f4f8ff;
+    color: #333;
+  }
+
+  header {
+    background: #0b5ed7;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  header p {
+    margin: 4px 0 0;
+    font-size: 12px;
   }
 
   .container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
-    padding: 20px;
+    padding: 10px;
   }
 
-  h1 {
-    color: #1e3a8a;
-    font-size: 20px;
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
-  h2 {
-    font-size: 16px;
-    color: #2563eb;
-    margin-top: 20px;
+  .section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+  }
+
+  .section h2 {
+    margin: 0 0 6px;
+    font-size: 14px;
+    color: #0b5ed7;
   }
 
   ul {
-    font-size: 13px;
-    padding-left: 18px;
+    margin: 0;
+    padding-left: 16px;
   }
 
-  .photos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-    margin-top: 10px;
+  ul li {
+    font-size: 12.5px;
+    margin-bottom: 3px;
   }
 
-  .photos img {
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  .btn {
-    display: inline-block;
-    margin-top: 25px;
-    background: #1e3a8a;
+  .back-btn {
+    display: block;
+    text-align: center;
+    margin: 10px auto 0;
+    padding: 6px 14px;
+    font-size: 12px;
+    background: #0b5ed7;
     color: #fff;
     text-decoration: none;
-    padding: 10px 16px;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 600;
+    border-radius: 20px;
+    width: fit-content;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 11px;
+    padding: 6px;
+    color: #666;
+  }
+
+  /* Mobile View */
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 </head>
 
 <body>
+
+<header>
+  <h1>Dombivli West</h1>
+  <p>Facilities & Amenities – Study ZONE</p>
+</header>
+
 <div class="container">
+  <div class="grid">
 
-  <h1>Dombivli West – Facilities & Photos</h1>
+    <div class="section">
+      <h2>🪑 Essential Study Comfort</h2>
+      <ul>
+        <li>Fully air-conditioned reading room</li>
+        <li>Comfortable seating for regular study hours</li>
+        <li>Eye-friendly lighting</li>
+      </ul>
+    </div>
 
-  <h2>Facilities</h2>
-  <ul>
-    <li>Air-conditioned reading room</li>
-    <li>Individual partitioned desks</li>
-    <li>Power socket at each desk</li>
-    <li>High-speed Wi-Fi</li>
-    <li>RO drinking water</li>
-    <li>CCTV surveillance</li>
-  </ul>
+    <div class="section">
+      <h2>🔌 Basic Utilities</h2>
+      <ul>
+        <li>Power plug points</li>
+        <li>RO purified drinking water</li>
+        <li>Washrooms – Male / Female Separate</li>
+      </ul>
+    </div>
 
-  <h2>Photos</h2>
-  <div class="photos">
-    <img src="images/west-1.jpg" alt="Dombivli West Photo 1">
-    <img src="images/west-2.jpg" alt="Dombivli West Photo 2">
-    <img src="images/west-3.jpg" alt="Dombivli West Photo 3">
+    <div class="section">
+      <h2>📚 Academic Essentials</h2>
+      <ul>
+        <li>Common bookshelf for shared use</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🌐 Internet & Power Backup</h2>
+      <ul>
+        <li>Internet connectivity</li>
+        <li>Inverter power backup</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🔐 Safety & Security</h2>
+      <ul>
+        <li>24×7 CCTV surveillance</li>
+        <li>Secure and controlled access</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🛵 Easy Accessibility</h2>
+      <ul>
+        <li>Food stalls and stationery shops nearby</li>
+        <li>Convenient access from Dombivli West railway station</li>
+      </ul>
+    </div>
+
   </div>
 
-  <a href="maps.html" class="btn">⬅ Back to Maps</a>
-
+  <a href="index.html" class="back-btn">⬅ Back to Home</a>
 </div>
+
+<footer>
+  © Study ZONE – Trusted Since 2016
+</footer>
+
 </body>
 </html>
