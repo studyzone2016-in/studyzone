@@ -66,9 +66,8 @@ button {
     cursor: pointer;
 }
 
-button:disabled {
-    background: #9bb7e0;
-    cursor: not-allowed;
+button:hover {
+    background: #003380;
 }
 
 .footer-note {
@@ -77,38 +76,7 @@ button:disabled {
     text-align: center;
     color: #666;
 }
-
-/* Success Message */
-.success-message {
-    display: none;
-    text-align: center;
-    padding: 20px;
-    background: #e8f5e9;
-    color: #1b5e20;
-    border-radius: 8px;
-    margin-top: 20px;
-    font-size: 16px;
-}
 </style>
-
-<script>
-let submitted = false;
-
-function handleSubmit() {
-    submitted = true;
-    document.getElementById("submitBtn").disabled = true;
-    document.getElementById("submitBtn").innerText = "Submitting...";
-    return true;
-}
-
-function showConfirmation() {
-    if (submitted) {
-        document.getElementById("enrolForm").reset();
-        document.getElementById("formSection").style.display = "none";
-        document.getElementById("successMessage").style.display = "block";
-    }
-}
-</script>
 </head>
 
 <body>
@@ -117,81 +85,68 @@ function showConfirmation() {
     <h1>Enrolment Request</h1>
     <p class="subtext">Submit your subscription request. Our team will confirm seat availability.</p>
 
-    <!-- FORM SECTION -->
-    <div id="formSection">
-    <form id="enrolForm"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSfVFer68dLg-CG8ycmxc2beA-4xHdPHAKbkGDOVtbgaGKCdiA/formResponse"
-          method="POST"
-          target="hidden_iframe"
-          onsubmit="return handleSubmit();">
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSfVFer68dLg-CG8ycmxc2beA-4xHdPHAKbkGDOVtbgaGKCdiA/formResponse"
+      method="POST"
+      onsubmit="return submitForm();">
 
-        <input type="hidden" name="fvv" value="1">
-        <input type="hidden" name="pageHistory" value="0">
+<input type="hidden" name="fvv" value="1">
+<input type="hidden" name="pageHistory" value="0">
 
-        <label>Full Name *</label>
-        <input type="text" name="entry.457102072" required>
+<label>Full Name *</label>
+<input type="text" name="entry.457102072" required>
 
-        <label>Mobile Number *</label>
-        <input type="tel" name="entry.1568043505" required>
+<label>Mobile Number *</label>
+<input type="tel" name="entry.1568043505" required>
 
-        <label>Email ID</label>
-        <input type="email" name="entry.371981325">
+<label>Email ID</label>
+<input type="email" name="entry.371981325">
 
-        <label>Address *</label>
-        <textarea name="entry.517756019" rows="2" required></textarea>
+<label>Address *</label>
+<textarea name="entry.517756019" rows="2" required></textarea>
 
-        <label>City *</label>
-        <input type="text" name="entry.620029132" required>
+<label>City *</label>
+<input type="text" name="entry.620029132" required>
 
-        <label>Exam Preparing For *</label>
-        <input type="text" name="entry.998781507" required>
+<label>Exam Preparing For *</label>
+<input type="text" name="entry.998781507" required>
 
-        <label>Member Type *</label>
-        <select name="entry.350049249" required>
-            <option value="">Select</option>
-            <option value="First Time">First Time</option>
-            <option value="Existing Member">Existing Member</option>
-        </select>
+<label>Member Type *</label>
+<select name="entry.350049249" required>
+    <option value="">Select</option>
+    <option value="First Time">First Time</option>
+    <option value="Existing Member">Existing Member</option>
+</select>
 
-        <label>Preferred Branch *</label>
-        <select name="entry.1265523811" required>
-            <option value="">Select</option>
-            <option value="Dombivli West">Dombivli West</option>
-            <option value="Dombivli East (MIDC)">Dombivli East (MIDC)</option>
-        </select>
+<label>Preferred Branch *</label>
+<select name="entry.1265523811" required>
+    <option value="">Select</option>
+    <option value="Dombivli West">Dombivli West</option>
+    <option value="Dombivli East (MIDC)">Dombivli East (MIDC)</option>
+</select>
 
-        <label>Preferred Plan *</label>
-        <select name="entry.792401209" required>
-            <option value="">Select</option>
-            <option value="Max Plan – Full Day">Max Plan – Full Day</option>
-            <option value="Light Plan – Morning Slot">Light Plan – Morning Slot</option>
-            <option value="Light Plan – Afternoon Slot">Light Plan – Afternoon Slot</option>
-            <option value="Light Plan – Evening Slot">Light Plan – Evening Slot</option>
-            <option value="Light flexi Plan - Morning + Afternoon Slot">Light flexi Plan - Morning + Afternoon Slot</option>
-            <option value="Light flexi Plan - Morning + Evening Slot">Light flexi Plan - Morning + Evening Slot</option>
-            <option value="Light flexi Plan - Afternoon + Evening Slot">Light flexi Plan - Afternoon + Evening Slot</option>
-            <option value="Weekend - Only Saturday & Sunday">Weekend - Only Saturday & Sunday</option>
-            <option value="Mini Plan - Morning Slot">Mini Plan - Morning Slot</option>
-            <option value="Mini Plan - Evening Slot">Mini Plan - Evening Slot</option>
-            <option value="Single Day Plan - Full Day">Single Day Plan - Full Day</option>
-        </select>
+<label>Preferred Plan *</label>
+<select name="entry.792401209" required>
+    <option value="">Select</option>
+    <option value="Max Plan – Full Day">Max Plan – Full Day</option>
+    <option value="Light Plan – Morning Slot">Light Plan – Morning Slot</option>
+    <option value="Light Plan – Afternoon Slot">Light Plan – Afternoon Slot</option>
+    <option value="Light Plan – Evening Slot">Light Plan – Evening Slot</option>
+    <option value="Light flexi Plan - Morning + Afternoon Slot">Light flexi Plan - Morning + Afternoon Slot</option>
+    <option value="Light flexi Plan - Morning + Evening Slot">Light flexi Plan - Morning + Evening Slot</option>
+    <option value="Light flexi Plan - Afternoon + Evening Slot">Light flexi Plan - Afternoon + Evening Slot</option>
+    <option value="Weekend - Only Saturday & Sunday">Weekend - Only Saturday & Sunday</option>
+    <option value="Mini Plan - Morning Slot">Mini Plan - Morning Slot</option>
+    <option value="Mini Plan - Evening Slot">Mini Plan - Evening Slot</option>
+    <option value="Single Day Plan - Full Day">Single Day Plan - Full Day</option>
+</select>
 
-        <label>Additional Notes</label>
-        <textarea name="entry.1712322260" rows="3"></textarea>
+<label>Additional Notes</label>
+<textarea name="entry.1712322260" rows="3"></textarea>
 
-        <button id="submitBtn" type="submit">Submit Subscription Request</button>
-    </form>
-    </div>
+<button type="submit">Submit Subscription Request</button>
+</form>
 
-    <!-- SUCCESS MESSAGE -->
-    <div id="successMessage" class="success-message">
-        ✅ <strong>Thank you!</strong><br><br>
-        Your enrolment request has been submitted successfully.<br>
-        Our team will contact you shortly to confirm seat availability.
-    </div>
-
-    <!-- Hidden iframe -->
-    <iframe name="hidden_iframe" style="display:none;" onload="showConfirmation();"></iframe>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
 
     <div class="footer-note">
         Trusted self-study environment since 2016 | Study ZONE
