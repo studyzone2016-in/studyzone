@@ -80,13 +80,27 @@ button:disabled {
 
 /* Success Message */
 .success-message {
-    display: none;
     text-align: center;
-    padding: 25px;
+    padding: 30px;
     background: #e8f5e9;
     color: #1b5e20;
     border-radius: 8px;
     font-size: 16px;
+}
+
+.home-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 22px;
+    background: #004aad;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.home-btn:hover {
+    background: #003380;
 }
 </style>
 
@@ -102,11 +116,12 @@ function handleSubmit() {
 
 function showConfirmation() {
     if (submitted) {
-        document.querySelector(".container").innerHTML =
-        `<div class="success-message" style="display:block;">
+        document.querySelector(".container").innerHTML = `
+        <div class="success-message">
             ✅ <strong>Thank you!</strong><br><br>
             Your enrolment request has been submitted successfully.<br>
-            Our team will contact you shortly.
+            Our team will contact you shortly.<br><br>
+            <a href="index.html" class="home-btn">Go to Home Page</a>
         </div>`;
     }
 }
