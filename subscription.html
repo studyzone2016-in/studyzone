@@ -25,7 +25,6 @@
     padding: 14px;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 6px 18px rgba(30,58,138,0.25);
   }
 
   .header h1 {
@@ -33,9 +32,26 @@
     font-size: 20px;
   }
 
+  .branch-select {
+    margin-top: 12px;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  }
+
+  select {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 8px;
+    border: 1px solid #c7d2fe;
+    outline: none;
+  }
+
   .card {
     background: #ffffff;
-    margin-top: 14px;
+    margin-top: 12px;
     border-radius: 12px;
     padding: 10px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.06);
@@ -49,83 +65,40 @@
   th {
     background: #e0ecff;
     color: #1e3a8a;
-    text-align: left;
     padding: 8px;
     font-size: 13px;
+    text-align: left;
   }
 
   td {
     padding: 8px;
     border-bottom: 1px solid #edf2ff;
     font-size: 12.5px;
-    vertical-align: top;
   }
 
   .plan {
     font-weight: 600;
     color: #1e40af;
-    white-space: nowrap;
   }
 
   .fees {
     font-weight: 600;
     color: #065f46;
-    white-space: nowrap;
-  }
-
-  .section {
-    margin-top: 12px;
-    background: #ffffff;
-    padding: 10px;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-  }
-
-  .section h2 {
-    margin: 0 0 6px 0;
-    font-size: 14px;
-    color: #1e3a8a;
-    border-left: 3px solid #2563eb;
-    padding-left: 8px;
-  }
-
-  ul {
-    padding-left: 16px;
-    font-size: 12.5px;
-    margin: 0;
-  }
-
-  ul li {
-    margin-bottom: 4px;
   }
 
   .footer {
     text-align: center;
-    margin-top: 16px;
+    margin-top: 14px;
   }
 
   .back-btn {
-    display: inline-block;
     background: #1e3a8a;
-    color: #ffffff;
-    text-decoration: none;
+    color: #fff;
     padding: 8px 14px;
     border-radius: 8px;
+    text-decoration: none;
     font-size: 12.5px;
     font-weight: 600;
-  }
-
-  .back-btn:hover {
-    background: #2563eb;
-  }
-
-  @media (max-width: 768px) {
-    th, td {
-      font-size: 12px;
-    }
-    .header h1 {
-      font-size: 18px;
-    }
   }
 </style>
 </head>
@@ -135,6 +108,15 @@
 
   <div class="header">
     <h1>Subscription Plans</h1>
+  </div>
+
+  <!-- Branch Dropdown -->
+  <div class="branch-select">
+    <strong>Select Branch:</strong>
+    <select id="branch" onchange="updateFees()">
+      <option value="west">Dombivli West</option>
+      <option value="east">Dombivli East (MIDC)</option>
+    </select>
   </div>
 
   <div class="card">
@@ -150,62 +132,44 @@
         <td class="plan">Max Plan</td>
         <td>15 Hrs</td>
         <td>7:00 AM – 10:00 PM</td>
-        <td class="fees">₹3,500 / Month</td>
+        <td class="fees" id="maxPlan">₹3,500</td>
       </tr>
 
       <tr>
         <td class="plan">Light Plan</td>
         <td>5 Hrs</td>
         <td>Any one slot</td>
-        <td class="fees">₹1,800 / Month</td>
+        <td class="fees" id="lightPlan">₹1,800</td>
       </tr>
 
       <tr>
         <td class="plan">Light Flexi</td>
         <td>10 Hrs</td>
         <td>Any two slots</td>
-        <td class="fees">₹2,700 / Month</td>
+        <td class="fees" id="flexiPlan">₹2,700</td>
       </tr>
 
       <tr>
         <td class="plan">Mini Plan</td>
         <td>2 Hrs</td>
         <td>7–9 AM / 8–10 PM</td>
-        <td class="fees">₹1,200 / Month</td>
+        <td class="fees" id="miniPlan">₹1,200</td>
       </tr>
 
       <tr>
         <td class="plan">Single Day</td>
         <td>15 Hrs</td>
         <td>Full Day</td>
-        <td class="fees">₹250 / Day</td>
+        <td class="fees" id="singleDay">₹250</td>
       </tr>
 
       <tr>
         <td class="plan">Weekend</td>
         <td>15 Hrs</td>
         <td>Sat & Sun</td>
-        <td class="fees">₹1,500 / Month</td>
+        <td class="fees" id="weekend">₹1,500</td>
       </tr>
     </table>
-  </div>
-
-  <div class="section">
-    <h2>Standard Slots</h2>
-    <ul>
-      <li><strong>Morning:</strong> 7:00 AM – 12:00 PM</li>
-      <li><strong>Afternoon:</strong> 12:00 PM – 5:00 PM</li>
-      <li><strong>Evening:</strong> 5:00 PM – 10:00 PM</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Notes</h2>
-    <ul>
-      <li>Entry/exit as per selected slots</li>
-      <li>Slot changes need approval</li>
-      <li>Single Day Plan – advance booking</li>
-    </ul>
   </div>
 
   <div class="footer">
@@ -213,5 +177,28 @@
   </div>
 
 </div>
+
+<script>
+function updateFees() {
+  const branch = document.getElementById("branch").value;
+
+  if (branch === "west") {
+    document.getElementById("maxPlan").innerText = "₹1,800";
+    document.getElementById("lightPlan").innerText = "₹1,200";
+    document.getElementById("flexiPlan").innerText = "₹1,500";
+    document.getElementById("miniPlan").innerText = "₹750";
+    document.getElementById("singleDay").innerText = "₹150";
+    document.getElementById("weekend").innerText = "₹1,250";
+  } else {
+    document.getElementById("maxPlan").innerText = "₹2,820";
+    document.getElementById("lightPlan").innerText = "₹1,620";
+    document.getElementById("flexiPlan").innerText = "₹2,220";
+    document.getElementById("miniPlan").innerText = "₹1,200";
+    document.getElementById("singleDay").innerText = "₹250";
+    document.getElementById("weekend").innerText = "₹2,000";
+  }
+}
+</script>
+
 </body>
 </html>
