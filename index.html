@@ -14,101 +14,127 @@
 }
 
 body {
-  background: linear-gradient(135deg, #e6f0ff, #f5f9ff);
+  background: linear-gradient(135deg, #e6f0ff, #f8fbff);
   color: #0f172a;
 }
 
+/* Layout */
 .container {
-  max-width: 960px;
+  max-width: 1000px;
   margin: auto;
-  padding: 20px;
+  padding: 22px;
 }
 
 /* Hero */
 .hero {
   background: linear-gradient(135deg, #1e3a8a, #2563eb);
   color: #fff;
-  padding: 28px 20px;
-  border-radius: 16px;
+  padding: 32px 22px;
+  border-radius: 20px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(30,58,138,0.25);
+  box-shadow: 0 18px 35px rgba(30,58,138,0.3);
 }
 
 .hero h1 {
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-size: 1.9rem;
+  font-weight: 700;
 }
 
 .hero p {
-  font-size: 0.85rem;
-  margin-top: 6px;
+  font-size: 0.9rem;
+  margin-top: 8px;
   opacity: 0.95;
 }
 
 /* Sections */
 .sections {
-  margin-top: 22px;
+  margin-top: 26px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
 }
 
 /* Cards */
 .card {
-  background: #eef2ff;
-  border-radius: 16px;
-  padding: 16px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(15,23,42,0.12);
+}
+
+/* Highlight primary card */
+.card.primary {
+  border: 2px solid #2563eb;
+}
+
+/* Card Header */
 .card h2 {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #1e3a8a;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
+.icon {
+  font-size: 1.2rem;
+}
+
+/* Text */
 .card p,
 .card div {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: #334155;
+  line-height: 1.5;
 }
 
-/* Button – unified */
+/* Button */
 .btn {
   display: inline-block;
-  margin-top: 12px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  text-align: center;
+  margin-top: 14px;
+  padding: 11px 16px;
+  border-radius: 14px;
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   background: #2563eb;
-  color: #ffffff;
-  box-shadow: 0 6px 16px rgba(37,99,235,0.35);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(37,99,235,0.35);
+  transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .btn:hover {
   background: #1e40af;
+  transform: translateY(-1px);
 }
 
-/* Location text */
+/* Locations */
 .location {
+  margin-top: 6px;
   font-size: 0.75rem;
-  margin-top: 4px;
 }
 
 /* Footer */
 footer {
-  margin-top: 26px;
+  margin-top: 30px;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: #64748b;
 }
 
+/* Desktop */
 @media (min-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 0.95rem; }
+  .hero h1 { font-size: 2.3rem; }
+  .hero p { font-size: 1rem; }
 }
 </style>
 </head>
@@ -127,27 +153,27 @@ footer {
   <!-- Sections -->
   <div class="sections">
 
-    <!-- Subscriptions -->
+    <!-- Subscription -->
     <div class="card">
-      <h2>Subscriptions</h2>
-      <p>Flexible plans designed for focused and uninterrupted self-study.</p>
+      <h2><span class="icon">📘</span>Subscriptions</h2>
+      <p>Flexible plans designed for focused, distraction-free self-study.</p>
       <a href="subscription.html" class="btn">View Subscription Plans</a>
     </div>
 
     <!-- Locations -->
     <div class="card">
-      <h2>Our Dombivli Branches</h2>
-      <div class="location">Dombivli West · 3-minute walk from station</div>
+      <h2><span class="icon">📍</span>Our Branches</h2>
+      <div class="location">Dombivli West · 3-min walk from station</div>
       <div class="location">Dombivli East (MIDC) · Opp. Pendharkar College</div>
       <a href="maps.html" class="btn">Maps & Facilities</a>
     </div>
 
     <!-- Enrol / Renew -->
-    <div class="card">
-      <h2>Enrolment & Subscription</h2>
+    <div class="card primary">
+      <h2><span class="icon">🎓</span>Enrolment & Subscription</h2>
       <div>
         New members can submit an enrolment request.<br>
-        Existing members can request subscription renewal.
+        Existing members can renew their subscription.
       </div>
       <a href="enrol.html" class="btn">Enrol / Renew Subscription</a>
     </div>
@@ -156,7 +182,7 @@ footer {
 
   <!-- Footer -->
   <footer>
-    © Study ZONE · Serving Students Since 2016
+    © Study ZONE · Serving Students with Pride Since 2016
   </footer>
 
 </div>
