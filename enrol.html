@@ -14,40 +14,42 @@ body {
 }
 
 .container {
-    max-width: 760px;
-    margin: 30px auto;
+    max-width: 720px;
+    margin: 15px auto;
     background: #ffffff;
-    padding: 25px 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 18px 22px;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
 h1 {
     text-align: center;
     color: #004aad;
-    margin-bottom: 5px;
+    margin: 0 0 4px 0;
+    font-size: 22px;
 }
 
 .subtext {
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     color: #555;
-    margin-bottom: 25px;
+    margin-bottom: 14px;
 }
 
 label {
     display: block;
-    margin-top: 15px;
+    margin-top: 10px;
     font-weight: 600;
+    font-size: 13px;
 }
 
 input, select, textarea {
     width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    border-radius: 6px;
+    padding: 8px;
+    margin-top: 4px;
+    border-radius: 5px;
     border: 1px solid #ccc;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 textarea {
@@ -56,13 +58,13 @@ textarea {
 
 button {
     width: 100%;
-    margin-top: 25px;
-    padding: 12px;
+    margin-top: 18px;
+    padding: 10px;
     background: #004aad;
     color: #fff;
     border: none;
     border-radius: 6px;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -72,31 +74,31 @@ button:disabled {
 }
 
 .footer-note {
-    margin-top: 15px;
-    font-size: 12px;
+    margin-top: 10px;
+    font-size: 11px;
     text-align: center;
     color: #666;
 }
 
-/* Success Message */
+/* Success */
 .success-message {
     text-align: center;
-    padding: 30px;
+    padding: 26px;
     background: #e8f5e9;
     color: #1b5e20;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .home-btn {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 22px;
+    margin-top: 14px;
+    padding: 10px 18px;
     background: #004aad;
-    color: #ffffff;
+    color: #fff;
     text-decoration: none;
     border-radius: 6px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .home-btn:hover {
@@ -120,7 +122,7 @@ function showConfirmation() {
         <div class="success-message">
             ✅ <strong>Thank you!</strong><br><br>
             Your enrolment request has been submitted successfully.<br>
-            Our team will contact you shortly.<br><br>
+            Our team will contact you shortly.<br>
             <a href="index.html" class="home-btn">Go to Home Page</a>
         </div>`;
     }
@@ -132,90 +134,84 @@ function showConfirmation() {
 
 <div class="container">
 
-    <h1>Enrolment Request</h1>
-    <p class="subtext">Submit your subscription request. Our team will confirm seat availability.</p>
+<h1>Enrolment Request</h1>
+<p class="subtext">Submit your subscription request. Our team will confirm seat availability.</p>
 
-    <form id="enrolForm"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSfVFer68dLg-CG8ycmxc2beA-4xHdPHAKbkGDOVtbgaGKCdiA/formResponse"
-          method="POST"
-          target="hidden_iframe"
-          onsubmit="return handleSubmit();">
+<form id="enrolForm"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSfVFer68dLg-CG8ycmxc2beA-4xHdPHAKbkGDOVtbgaGKCdiA/formResponse"
+      method="POST"
+      target="hidden_iframe"
+      onsubmit="return handleSubmit();">
 
-        <input type="hidden" name="fvv" value="1">
-        <input type="hidden" name="pageHistory" value="0">
+<input type="hidden" name="fvv" value="1">
+<input type="hidden" name="pageHistory" value="0">
 
-        <label>Full Name *</label>
-        <input type="text" name="entry.457102072" required>
+<label>Full Name *</label>
+<input type="text" name="entry.457102072" required>
 
-        <label>Mobile Number *</label>
-        <input type="tel"
-               name="entry.1568043505"
-               pattern="[0-9]{10}"
-               maxlength="10"
-               inputmode="numeric"
-               placeholder="Enter 10-digit mobile number"
-               title="Please enter a valid 10-digit mobile number"
-               required>
+<label>Mobile Number *</label>
+<input type="tel"
+       name="entry.1568043505"
+       pattern="[0-9]{10}"
+       maxlength="10"
+       inputmode="numeric"
+       placeholder="10-digit mobile number"
+       title="Enter a valid 10-digit mobile number"
+       required>
 
-        <label>Email ID</label>
-        <input type="email"
-               name="entry.371981325"
-               placeholder="example@email.com"
-               autocomplete="email">
+<label>Email ID</label>
+<input type="email"
+       name="entry.371981325"
+       placeholder="example@email.com">
 
-        <label>Address *</label>
-        <textarea name="entry.517756019" rows="2" required></textarea>
+<label>Address *</label>
+<textarea name="entry.517756019" rows="2" required></textarea>
 
-        <label>City *</label>
-        <input type="text" name="entry.620029132" required>
+<label>City *</label>
+<input type="text" name="entry.620029132" required>
 
-        <label>Exam Preparing For *</label>
-        <input type="text"
-               name="entry.998781507"
-               placeholder="Eg: NEET, UPSC, CA, JEE, MPSC, SSC"
-               required>
+<label>Exam Preparing For *</label>
+<input type="text"
+       name="entry.998781507"
+       placeholder="NEET, UPSC, CA, JEE, MPSC, SSC"
+       required>
 
-        <label>Member Type *</label>
-        <select name="entry.350049249" required>
-            <option value="">Select</option>
-            <option value="First Time">First Time</option>
-            <option value="Existing Member">Existing Member</option>
-        </select>
+<label>Member Type *</label>
+<select name="entry.350049249" required>
+    <option value="">Select</option>
+    <option value="First Time">First Time</option>
+    <option value="Existing Member">Existing Member</option>
+</select>
 
-        <label>Preferred Branch *</label>
-        <select name="entry.1265523811" required>
-            <option value="">Select</option>
-            <option value="Dombivli West">Dombivli West</option>
-            <option value="Dombivli East (MIDC)">Dombivli East (MIDC)</option>
-        </select>
+<label>Preferred Branch *</label>
+<select name="entry.1265523811" required>
+    <option value="">Select</option>
+    <option value="Dombivli West">Dombivli West</option>
+    <option value="Dombivli East (MIDC)">Dombivli East (MIDC)</option>
+</select>
 
-        <label>Preferred Plan *</label>
-        <select name="entry.792401209" required>
-            <option value="">Select</option>
-            <option value="Max Plan – Full Day">Max Plan – Full Day</option>
-            <option value="Light Plan – Morning Slot">Light Plan – Morning Slot</option>
-            <option value="Light Plan – Afternoon Slot">Light Plan – Afternoon Slot</option>
-            <option value="Light Plan – Evening Slot">Light Plan – Evening Slot</option>
-            <option value="Light flexi Plan - Morning + Afternoon Slot">Light flexi Plan - Morning + Afternoon Slot</option>
-            <option value="Light flexi Plan - Morning + Evening Slot">Light flexi Plan - Morning + Evening Slot</option>
-            <option value="Light flexi Plan - Afternoon + Evening Slot">Light flexi Plan - Afternoon + Evening Slot</option>
-            <option value="Weekend - Only Saturday & Sunday">Weekend - Only Saturday & Sunday</option>
-            <option value="Mini Plan - Morning Slot">Mini Plan - Morning Slot</option>
-            <option value="Mini Plan - Evening Slot">Mini Plan - Evening Slot</option>
-            <option value="Single Day Plan - Full Day">Single Day Plan - Full Day</option>
-        </select>
+<label>Preferred Plan *</label>
+<select name="entry.792401209" required>
+    <option value="">Select</option>
+    <option value="Max Plan – Full Day">Max Plan – Full Day</option>
+    <option value="Light Plan – Morning Slot">Light Plan – Morning Slot</option>
+    <option value="Light Plan – Afternoon Slot">Light Plan – Afternoon Slot</option>
+    <option value="Light Plan – Evening Slot">Light Plan – Evening Slot</option>
+    <option value="Weekend - Only Saturday & Sunday">Weekend - Only Saturday & Sunday</option>
+</select>
 
-        <label>Additional Notes</label>
-        <textarea name="entry.1712322260" rows="3"></textarea>
+<label>Additional Notes</label>
+<textarea name="entry.1712322260" rows="2"></textarea>
 
-        <button id="submitBtn" type="submit">Submit Subscription Request</button>
-    </form>
+<button id="submitBtn" type="submit">Submit Subscription Request</button>
 
-    <iframe name="hidden_iframe" style="display:none;" onload="showConfirmation();"></iframe>
+</form>
 
-    <div class="footer-note">
-        Trusted self-study environment since 2016 | Study ZONE
-    </div>
+<iframe name="hidden_iframe" style="display:none;" onload="showConfirmation();"></iframe>
+
+<div class="footer-note">
+Trusted self-study environment since 2016 | Study ZONE
+</div>
 
 </div>
 
