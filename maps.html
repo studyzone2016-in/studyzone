@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Study ZONE | Maps</title>
+<title>Study ZONE | Branch Locations</title>
 
 <style>
   body {
@@ -14,7 +14,7 @@
   }
 
   .container {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: auto;
     padding: 20px;
   }
@@ -22,7 +22,7 @@
   .header {
     background: linear-gradient(135deg, #1e3a8a, #2563eb);
     color: #fff;
-    padding: 20px;
+    padding: 18px;
     border-radius: 14px;
     text-align: center;
     box-shadow: 0 10px 25px rgba(30,58,138,0.25);
@@ -33,12 +33,30 @@
     font-size: 22px;
   }
 
+  .selector {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  select {
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid #c7d2fe;
+    min-width: 260px;
+  }
+
   .branch-card {
+    display: none;
     background: #ffffff;
     margin-top: 20px;
     border-radius: 14px;
     padding: 16px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  }
+
+  .branch-card.active {
+    display: block;
   }
 
   .branch-card h2 {
@@ -93,8 +111,17 @@
     <h1>Study ZONE – Branch Locations</h1>
   </div>
 
+  <!-- Branch Selector -->
+  <div class="selector">
+    <select id="branchSelect" onchange="showBranch()">
+      <option value="">-- Select Branch Location --</option>
+      <option value="west">Dombivli West</option>
+      <option value="east">Dombivli East (MIDC)</option>
+    </select>
+  </div>
+
   <!-- Dombivli West -->
-  <div class="branch-card">
+  <div id="west" class="branch-card">
     <h2>Dombivli West</h2>
 
     <iframe 
@@ -102,7 +129,7 @@
     </iframe>
 
     <div class="btn-group">
-      <a href="https://www.google.com/maps/place/Study+Zone+(Self+Study+Centre)/@19.2189258,73.0646388,15z/data=!4m10!1m2!2m1!1sStudy+Zone+Self+Study+Centre!3m6!1s0x3be7be21dcee5c63:0xc37a34e8eaa042e3!8m2!3d19.2189258!4d73.0836932!15sChxTdHVkeSBab25lIFNlbGYgU3R1ZHkgQ2VudHJlkgEHbGlicmFyeeABAA!16s%2Fg%2F11clwkg12m?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+      <a href="https://www.google.com/maps/place/Study+Zone+(Self+Study+Centre)/@19.2189258,73.0836932"
          target="_blank" class="btn">📍 Open in Google Maps</a>
       <a href="branch-dombivli-west.html" class="btn secondary">
         🏢 Facilities
@@ -111,7 +138,7 @@
   </div>
 
   <!-- Dombivli East -->
-  <div class="branch-card">
+  <div id="east" class="branch-card">
     <h2>Dombivli East (MIDC)</h2>
 
     <iframe 
@@ -132,5 +159,19 @@
   </div>
 
 </div>
+
+<script>
+  function showBranch() {
+    const selected = document.getElementById("branchSelect").value;
+    const cards = document.querySelectorAll(".branch-card");
+
+    cards.forEach(card => card.classList.remove("active"));
+
+    if (selected) {
+      document.getElementById(selected).classList.add("active");
+    }
+  }
+</script>
+
 </body>
 </html>
