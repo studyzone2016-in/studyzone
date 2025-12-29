@@ -6,7 +6,6 @@
 <title>Study ZONE – Trusted Since 2016</title>
 
 <style>
-/* ---------- Global Reset ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -19,17 +18,16 @@ body {
   color: #0f172a;
 }
 
-/* ---------- Layout ---------- */
 .container {
   max-width: 960px;
   margin: auto;
   padding: 20px;
 }
 
-/* ---------- Hero Header (Desktop + Mobile) ---------- */
+/* Hero */
 .hero {
   background: linear-gradient(135deg, #1e3a8a, #2563eb);
-  color: #ffffff;
+  color: #fff;
   padding: 28px 20px;
   border-radius: 16px;
   text-align: center;
@@ -47,7 +45,7 @@ body {
   opacity: 0.95;
 }
 
-/* ---------- Sections Grid ---------- */
+/* Sections */
 .sections {
   margin-top: 22px;
   display: grid;
@@ -55,7 +53,7 @@ body {
   gap: 16px;
 }
 
-/* ---------- Cards ---------- */
+/* Cards */
 .card {
   background: #eef2ff;
   border-radius: 16px;
@@ -66,7 +64,7 @@ body {
   font-size: 0.95rem;
   font-weight: 600;
   color: #1e3a8a;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .card p,
@@ -75,10 +73,10 @@ body {
   color: #334155;
 }
 
-/* ---------- Buttons ---------- */
+/* Button – unified */
 .btn {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 12px;
   padding: 10px 14px;
   border-radius: 12px;
   text-align: center;
@@ -94,26 +92,13 @@ body {
   background: #1e40af;
 }
 
-.btn.secondary {
-  background: #dbeafe;
-  color: #1e3a8a;
-  box-shadow: none;
-}
-
-/* ---------- Locations ---------- */
+/* Location text */
 .location {
   font-size: 0.75rem;
   margin-top: 4px;
-  color: #1e293b;
 }
 
-/* ---------- Steps ---------- */
-.steps {
-  font-size: 0.75rem;
-  line-height: 1.5;
-}
-
-/* ---------- Footer ---------- */
+/* Footer */
 footer {
   margin-top: 26px;
   text-align: center;
@@ -121,14 +106,9 @@ footer {
   color: #64748b;
 }
 
-/* ---------- Desktop Enhancement ---------- */
 @media (min-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 0.95rem;
-  }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 0.95rem; }
 }
 </style>
 </head>
@@ -137,7 +117,7 @@ footer {
 
 <div class="container">
 
-  <!-- Hero Header -->
+  <!-- Hero -->
   <div class="hero">
     <h1>Study ZONE</h1>
     <p>Trusted Self-Study Centre in Dombivli Since 2016</p>
@@ -150,27 +130,26 @@ footer {
     <!-- Subscriptions -->
     <div class="card">
       <h2>Subscriptions</h2>
-      <p>Flexible study plans designed for focused learning</p>
+      <p>Flexible plans designed for focused and uninterrupted self-study.</p>
       <a href="subscription.html" class="btn">View Subscription Plans</a>
     </div>
 
     <!-- Locations -->
     <div class="card">
       <h2>Our Dombivli Branches</h2>
-      <div class="location">Dombivli West · 3-min walk from railway station</div>
+      <div class="location">Dombivli West · 3-minute walk from station</div>
       <div class="location">Dombivli East (MIDC) · Opp. Pendharkar College</div>
-      <a href="maps.html" class="btn secondary">Maps & Facilities</a>
+      <a href="maps.html" class="btn">Maps & Facilities</a>
     </div>
 
-    <!-- Enrol -->
+    <!-- Enrol / Renew -->
     <div class="card">
-      <h2>Enrol</h2>
-      <div class="steps">
-        1. One-time membership<br>
-        2. Select branch<br>
-        3. Choose a plan
+      <h2>Enrolment & Subscription</h2>
+      <div>
+        New members can submit an enrolment request.<br>
+        Existing members can request subscription renewal.
       </div>
-      <a href="enrol.html" class="btn">Enrol Now</a>
+      <a href="enrol.html" class="btn">Enrol / Renew Subscription</a>
     </div>
 
   </div>
