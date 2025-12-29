@@ -33,25 +33,29 @@
   }
 
   .branch-select {
-    margin-top: 12px;
+    margin-top: 14px;
     background: #ffffff;
-    padding: 10px;
+    padding: 12px;
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 4px 14px rgba(0,0,0,0.06);
   }
 
   select {
-    padding: 8px 12px;
+    padding: 8px 14px;
     font-size: 13px;
     border-radius: 8px;
     border: 1px solid #c7d2fe;
     outline: none;
   }
 
+  .content {
+    display: none;
+    margin-top: 14px;
+  }
+
   .card {
     background: #ffffff;
-    margin-top: 12px;
     border-radius: 12px;
     padding: 10px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.06);
@@ -86,6 +90,32 @@
     color: #065f46;
   }
 
+  .section {
+    margin-top: 12px;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  }
+
+  .section h2 {
+    margin: 0 0 6px 0;
+    font-size: 14px;
+    color: #1e3a8a;
+    border-left: 3px solid #2563eb;
+    padding-left: 8px;
+  }
+
+  ul {
+    padding-left: 16px;
+    font-size: 12.5px;
+    margin: 0;
+  }
+
+  ul li {
+    margin-bottom: 4px;
+  }
+
   .footer {
     text-align: center;
     margin-top: 14px;
@@ -110,66 +140,91 @@
     <h1>Subscription Plans</h1>
   </div>
 
-  <!-- Branch Dropdown -->
+  <!-- Branch Selection -->
   <div class="branch-select">
     <strong>Select Branch:</strong>
-    <select id="branch" onchange="updateFees()">
+    <select id="branch" onchange="showPlans()">
+      <option value="">-- Choose Branch --</option>
       <option value="west">Dombivli West</option>
       <option value="east">Dombivli East (MIDC)</option>
     </select>
   </div>
 
-  <div class="card">
-    <table>
-      <tr>
-        <th>Plan</th>
-        <th>Access</th>
-        <th>Time Slots</th>
-        <th>Fees (₹)</th>
-      </tr>
+  <!-- Hidden Content -->
+  <div class="content" id="plansSection">
 
-      <tr>
-        <td class="plan">Max Plan</td>
-        <td>15 Hrs</td>
-        <td>7:00 AM – 10:00 PM</td>
-        <td class="fees" id="maxPlan">₹3,500</td>
-      </tr>
+    <div class="card">
+      <table>
+        <tr>
+          <th>Plan</th>
+          <th>Access</th>
+          <th>Time Slots</th>
+          <th>Fees (₹)</th>
+        </tr>
 
-      <tr>
-        <td class="plan">Light Plan</td>
-        <td>5 Hrs</td>
-        <td>Any one slot</td>
-        <td class="fees" id="lightPlan">₹1,800</td>
-      </tr>
+        <tr>
+          <td class="plan">Max Plan</td>
+          <td>15 Hrs</td>
+          <td>7:00 AM – 10:00 PM</td>
+          <td class="fees" id="maxPlan"></td>
+        </tr>
 
-      <tr>
-        <td class="plan">Light Flexi</td>
-        <td>10 Hrs</td>
-        <td>Any two slots</td>
-        <td class="fees" id="flexiPlan">₹2,700</td>
-      </tr>
+        <tr>
+          <td class="plan">Light Plan</td>
+          <td>5 Hrs</td>
+          <td>Any one slot</td>
+          <td class="fees" id="lightPlan"></td>
+        </tr>
 
-      <tr>
-        <td class="plan">Mini Plan</td>
-        <td>2 Hrs</td>
-        <td>7–9 AM / 8–10 PM</td>
-        <td class="fees" id="miniPlan">₹1,200</td>
-      </tr>
+        <tr>
+          <td class="plan">Light Flexi</td>
+          <td>10 Hrs</td>
+          <td>Any two slots</td>
+          <td class="fees" id="flexiPlan"></td>
+        </tr>
 
-      <tr>
-        <td class="plan">Single Day</td>
-        <td>15 Hrs</td>
-        <td>Full Day</td>
-        <td class="fees" id="singleDay">₹250</td>
-      </tr>
+        <tr>
+          <td class="plan">Mini Plan</td>
+          <td>2 Hrs</td>
+          <td>7–9 AM / 8–10 PM</td>
+          <td class="fees" id="miniPlan"></td>
+        </tr>
 
-      <tr>
-        <td class="plan">Weekend</td>
-        <td>15 Hrs</td>
-        <td>Sat & Sun</td>
-        <td class="fees" id="weekend">₹1,500</td>
-      </tr>
-    </table>
+        <tr>
+          <td class="plan">Single Day</td>
+          <td>15 Hrs</td>
+          <td>Full Day</td>
+          <td class="fees" id="singleDay"></td>
+        </tr>
+
+        <tr>
+          <td class="plan">Weekend</td>
+          <td>15 Hrs</td>
+          <td>Sat & Sun</td>
+          <td class="fees" id="weekend"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Standard Time Slots</h2>
+      <ul>
+        <li><strong>Morning:</strong> 7:00 AM – 12:00 PM</li>
+        <li><strong>Afternoon:</strong> 12:00 PM – 5:00 PM</li>
+        <li><strong>Evening:</strong> 5:00 PM – 10:00 PM</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Notes & Rules</h2>
+      <ul>
+        <li>Entry and exit must follow selected slots.</li>
+        <li>Slot changes require management approval.</li>
+        <li>Single Day Plan requires advance booking.</li>
+        <li><strong>For new members, one-time registration is mandatory.</strong></li>
+      </ul>
+    </div>
+
   </div>
 
   <div class="footer">
@@ -179,23 +234,31 @@
 </div>
 
 <script>
-function updateFees() {
+function showPlans() {
   const branch = document.getElementById("branch").value;
+  const section = document.getElementById("plansSection");
+
+  if (!branch) {
+    section.style.display = "none";
+    return;
+  }
+
+  section.style.display = "block";
 
   if (branch === "west") {
-    document.getElementById("maxPlan").innerText = "₹1,800";
-    document.getElementById("lightPlan").innerText = "₹1,200";
-    document.getElementById("flexiPlan").innerText = "₹1,500";
-    document.getElementById("miniPlan").innerText = "₹750";
-    document.getElementById("singleDay").innerText = "₹150";
-    document.getElementById("weekend").innerText = "₹1,250";
+    maxPlan.innerText = "₹1,800";
+    lightPlan.innerText = "₹1,200";
+    flexiPlan.innerText = "₹1,500";
+    miniPlan.innerText = "₹750";
+    singleDay.innerText = "₹150";
+    weekend.innerText = "₹1,250";
   } else {
-    document.getElementById("maxPlan").innerText = "₹2,820";
-    document.getElementById("lightPlan").innerText = "₹1,620";
-    document.getElementById("flexiPlan").innerText = "₹2,220";
-    document.getElementById("miniPlan").innerText = "₹1,200";
-    document.getElementById("singleDay").innerText = "₹250";
-    document.getElementById("weekend").innerText = "₹2,000";
+    maxPlan.innerText = "₹2,820";
+    lightPlan.innerText = "₹1,620";
+    flexiPlan.innerText = "₹2,220";
+    miniPlan.innerText = "₹1,200";
+    singleDay.innerText = "₹250";
+    weekend.innerText = "₹2,000";
   }
 }
 </script>
