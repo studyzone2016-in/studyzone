@@ -14,31 +14,31 @@
   }
 
   .container {
-    max-width: 1100px;
+    max-width: 1050px;
     margin: auto;
-    padding: 20px;
+    padding: 14px;
   }
 
   .header {
     background: linear-gradient(135deg, #1e3a8a, #2563eb);
     color: #fff;
-    padding: 20px;
-    border-radius: 14px;
+    padding: 14px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(30,58,138,0.25);
+    box-shadow: 0 6px 18px rgba(30,58,138,0.25);
   }
 
   .header h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .card {
     background: #ffffff;
-    margin-top: 20px;
-    border-radius: 14px;
-    padding: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    margin-top: 14px;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
   }
 
   table {
@@ -50,14 +50,14 @@
     background: #e0ecff;
     color: #1e3a8a;
     text-align: left;
-    padding: 12px;
-    font-size: 14px;
+    padding: 8px;
+    font-size: 13px;
   }
 
   td {
-    padding: 12px;
+    padding: 8px;
     border-bottom: 1px solid #edf2ff;
-    font-size: 13px;
+    font-size: 12.5px;
     vertical-align: top;
   }
 
@@ -67,35 +67,41 @@
     white-space: nowrap;
   }
 
+  .fees {
+    font-weight: 600;
+    color: #065f46;
+    white-space: nowrap;
+  }
+
   .section {
-    margin-top: 22px;
+    margin-top: 12px;
     background: #ffffff;
-    padding: 16px;
-    border-radius: 14px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
   }
 
   .section h2 {
-    margin-top: 0;
-    font-size: 16px;
+    margin: 0 0 6px 0;
+    font-size: 14px;
     color: #1e3a8a;
-    border-left: 4px solid #2563eb;
-    padding-left: 10px;
+    border-left: 3px solid #2563eb;
+    padding-left: 8px;
   }
 
   ul {
-    padding-left: 18px;
-    font-size: 13px;
+    padding-left: 16px;
+    font-size: 12.5px;
     margin: 0;
   }
 
   ul li {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .footer {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 16px;
   }
 
   .back-btn {
@@ -103,11 +109,10 @@
     background: #1e3a8a;
     color: #ffffff;
     text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
     font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   }
 
   .back-btn:hover {
@@ -115,11 +120,11 @@
   }
 
   @media (max-width: 768px) {
-    .header h1 {
-      font-size: 20px;
-    }
     th, td {
-      font-size: 12.5px;
+      font-size: 12px;
+    }
+    .header h1 {
+      font-size: 18px;
     }
   }
 </style>
@@ -138,42 +143,55 @@
         <th>Plan</th>
         <th>Access</th>
         <th>Time Slots</th>
+        <th>Fees (₹)</th>
       </tr>
+
       <tr>
         <td class="plan">Max Plan</td>
-        <td>15 Hours</td>
-        <td>7:00 AM – 10:00 PM (No restrictions)</td>
+        <td>15 Hrs</td>
+        <td>7:00 AM – 10:00 PM</td>
+        <td class="fees">₹3,500 / Month</td>
       </tr>
+
       <tr>
         <td class="plan">Light Plan</td>
-        <td>5 Hours</td>
-        <td>Any one slot: Morning / Afternoon / Evening</td>
+        <td>5 Hrs</td>
+        <td>Any one slot</td>
+        <td class="fees">₹1,800 / Month</td>
       </tr>
+
       <tr>
-        <td class="plan">Light Flexi Plan</td>
-        <td>10 Hours</td>
-        <td>Any two slots: Morning / Afternoon / Evening</td>
+        <td class="plan">Light Flexi</td>
+        <td>10 Hrs</td>
+        <td>Any two slots</td>
+        <td class="fees">₹2,700 / Month</td>
       </tr>
+
       <tr>
         <td class="plan">Mini Plan</td>
-        <td>2 Hours</td>
-        <td>Morning (7:00–9:00 AM) or Evening (8:00–10:00 PM)</td>
+        <td>2 Hrs</td>
+        <td>7–9 AM / 8–10 PM</td>
+        <td class="fees">₹1,200 / Month</td>
       </tr>
+
       <tr>
-        <td class="plan">Single Day Plan</td>
-        <td>15 Hours</td>
-        <td>7:00 AM – 10:00 PM</td>
+        <td class="plan">Single Day</td>
+        <td>15 Hrs</td>
+        <td>Full Day</td>
+        <td class="fees">₹250 / Day</td>
       </tr>
+
       <tr>
-        <td class="plan">Weekend Plan</td>
-        <td>15 Hours / Day</td>
-        <td>Saturday & Sunday</td>
+        <td class="plan">Weekend</td>
+        <td>15 Hrs</td>
+        <td>Sat & Sun</td>
+        <td class="fees">₹1,500 / Month</td>
       </tr>
     </table>
   </div>
 
   <div class="section">
-    <h2>Standard Time Slots</h2>
+    <h2>Standard Slots</h2>
     <ul>
       <li><strong>Morning:</strong> 7:00 AM – 12:00 PM</li>
       <li><strong>Afternoon:</strong> 12:00 PM – 5:00 PM</li>
@@ -182,11 +200,11 @@
   </div>
 
   <div class="section">
-    <h2>Notes & Rules</h2>
+    <h2>Notes</h2>
     <ul>
-      <li>Entry and exit must follow selected slots.</li>
-      <li>Slot changes require management approval.</li>
-      <li>Single Day Plan requires advance booking.</li>
+      <li>Entry/exit as per selected slots</li>
+      <li>Slot changes need approval</li>
+      <li>Single Day Plan – advance booking</li>
     </ul>
   </div>
 
