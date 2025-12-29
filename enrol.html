@@ -82,11 +82,10 @@ button:disabled {
 .success-message {
     display: none;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     background: #e8f5e9;
     color: #1b5e20;
     border-radius: 8px;
-    margin-top: 20px;
     font-size: 16px;
 }
 </style>
@@ -103,9 +102,12 @@ function handleSubmit() {
 
 function showConfirmation() {
     if (submitted) {
-        document.getElementById("enrolForm").reset();
-        document.getElementById("formSection").style.display = "none";
-        document.getElementById("successMessage").style.display = "block";
+        document.querySelector(".container").innerHTML =
+        `<div class="success-message" style="display:block;">
+            ✅ <strong>Thank you!</strong><br><br>
+            Your enrolment request has been submitted successfully.<br>
+            Our team will contact you shortly.
+        </div>`;
     }
 }
 </script>
@@ -114,11 +116,10 @@ function showConfirmation() {
 <body>
 
 <div class="container">
+
     <h1>Enrolment Request</h1>
     <p class="subtext">Submit your subscription request. Our team will confirm seat availability.</p>
 
-    <!-- FORM SECTION -->
-    <div id="formSection">
     <form id="enrolForm"
           action="https://docs.google.com/forms/d/e/1FAIpQLSfVFer68dLg-CG8ycmxc2beA-4xHdPHAKbkGDOVtbgaGKCdiA/formResponse"
           method="POST"
@@ -132,10 +133,20 @@ function showConfirmation() {
         <input type="text" name="entry.457102072" required>
 
         <label>Mobile Number *</label>
-        <input type="tel" name="entry.1568043505" required>
+        <input type="tel"
+               name="entry.1568043505"
+               pattern="[0-9]{10}"
+               maxlength="10"
+               inputmode="numeric"
+               placeholder="Enter 10-digit mobile number"
+               title="Please enter a valid 10-digit mobile number"
+               required>
 
         <label>Email ID</label>
-        <input type="email" name="entry.371981325">
+        <input type="email"
+               name="entry.371981325"
+               placeholder="example@email.com"
+               autocomplete="email">
 
         <label>Address *</label>
         <textarea name="entry.517756019" rows="2" required></textarea>
@@ -144,7 +155,10 @@ function showConfirmation() {
         <input type="text" name="entry.620029132" required>
 
         <label>Exam Preparing For *</label>
-        <input type="text" name="entry.998781507" required>
+        <input type="text"
+               name="entry.998781507"
+               placeholder="Eg: NEET, UPSC, CA, JEE, MPSC, SSC"
+               required>
 
         <label>Member Type *</label>
         <select name="entry.350049249" required>
@@ -181,21 +195,13 @@ function showConfirmation() {
 
         <button id="submitBtn" type="submit">Submit Subscription Request</button>
     </form>
-    </div>
 
-    <!-- SUCCESS MESSAGE -->
-    <div id="successMessage" class="success-message">
-        ✅ <strong>Thank you!</strong><br><br>
-        Your enrolment request has been submitted successfully.<br>
-        Our team will contact you shortly to confirm seat availability.
-    </div>
-
-    <!-- Hidden iframe -->
     <iframe name="hidden_iframe" style="display:none;" onload="showConfirmation();"></iframe>
 
     <div class="footer-note">
         Trusted self-study environment since 2016 | Study ZONE
     </div>
+
 </div>
 
 </body>
