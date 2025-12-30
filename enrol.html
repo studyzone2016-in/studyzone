@@ -178,7 +178,7 @@ form.addEventListener("submit", function(e){
     btn.disabled = true;
     btn.innerText = "Submitting...";
 
-    fetch("YOUR_APPS_SCRIPT_WEB_APP_URL", {
+    fetch("https://script.google.com/macros/s/AKfycbwF_8R8AKgr2MApLGvStZBlobgcBhVaF2k8K2egOZBCBDPLN5--cPNP4poQ7LiUUGy6sg/exec", {
         method: "POST",
         body: new FormData(form)
     })
