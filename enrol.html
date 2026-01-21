@@ -2,226 +2,289 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Study ZONE | Enrolment Request</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #e6f0ff, #f9fbff);
-  color: #003366;
+body{
+  font-family:Segoe UI, Arial, sans-serif;
+  background:#eef3ff;
+  margin:0;
 }
-.container {
-  max-width: 720px;
-  margin: 15px auto;
-  background: #ffffff;
-  padding: 18px 22px;
-  border-radius: 8px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+.container{
+  max-width:720px;
+  margin:20px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:8px;
 }
-h1 {
-  text-align: center;
-  color: #004aad;
-  font-size: 22px;
-  margin-bottom: 4px;
+label{
+  font-weight:600;
+  font-size:13px;
+  margin-top:12px;
+  display:block;
 }
-.subtext {
-  text-align: center;
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 14px;
+input, select, textarea{
+  width:100%;
+  padding:8px;
+  margin-top:4px;
 }
-label {
-  display: block;
-  margin-top: 10px;
-  font-weight: 600;
-  font-size: 13px;
+input[readonly]{
+  background:#f3f5f8;
 }
-input, select, textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 4px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 13px;
+.error{
+  color:#d60000;
+  font-size:12px;
 }
-textarea { resize: vertical; }
-button {
-  width: 100%;
-  margin-top: 18px;
-  padding: 10px;
-  background: #004aad;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 15px;
-  cursor: pointer;
+.helper{
+  font-size:12px;
+  color:#444;
+  margin-top:4px;
 }
-button:disabled {
-  background: #9bb7e0;
-  cursor: not-allowed;
+button{
+  margin-top:18px;
+  padding:12px;
+  width:100%;
+  background:#004aad;
+  color:#fff;
+  border:none;
+  cursor:pointer;
 }
-.success-message {
-  text-align: center;
-  padding: 26px;
-  background: #e8f5e9;
-  color: #1b5e20;
-  border-radius: 8px;
-  font-size: 15px;
+.success-box{
+  text-align:center;
+  padding:40px 20px;
 }
-.error-message {
-  text-align: center;
-  padding: 18px;
-  background: #ffebee;
-  color: #b71c1c;
-  border-radius: 8px;
-  font-size: 14px;
-}
-.home-btn {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 10px 18px;
-  background: #004aad;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
+.success-box h2{
+  color:#1a7f37;
 }
 </style>
 </head>
 
 <body>
-<div class="container" id="mainBox">
-<h1>Enrolment Request</h1>
-<p class="subtext">Submit your request. Our team will confirm seat availability.</p>
+<div class="container">
+
+<h2 id="formTitle">Enrolment Request</h2>
 
 <form id="enrollForm">
 
-  <!-- STEP 1 : MEMBER TYPE -->
-  <label>Member Type *</label>
-  <select id="memberType" name="memberType" required>
-    <option value="">Select</option>
-    <option value="First Time">First Time</option>
-    <option value="Existing Member">Existing Member</option>
-  </select>
+<label>Member Type *</label>
+<select id="memberType" name="Member Type" required>
+  <option value="">Select</option>
+  <option>First Time</option>
+  <option>Existing Member</option>
+</select>
 
-  <!-- ALL OTHER FIELDS (HIDDEN INITIALLY) -->
-  <div id="formFields" style="display:none;">
+<div id="mainFields" style="display:none">
 
-    <label>Full Name *</label>
-    <input type="text" name="name" required>
+<label>Full Name *</label>
+<input name="Full Name" required>
 
-    <label>Mobile Number *</label>
-    <input type="tel" name="mobile" pattern="[0-9]{10}" maxlength="10"
-           inputmode="numeric" placeholder="10-digit mobile number" required>
+<label>Mobile Number *</label>
+<input id="mobile" name="Mobile Number" maxlength="10" required placeholder="10 digit mobile number">
+<div id="mobileError" class="error"></div>
 
-    <label>Email ID</label>
-    <input type="email" name="email" placeholder="example@email.com">
+<label>Email ID</label>
+<input type="email" name="Email ID" placeholder="example@email.com">
 
-    <!-- FIRST TIME ONLY -->
-    <div id="firstTimeOnly">
-      <label>Address *</label>
-      <textarea name="address" rows="2"></textarea>
+<label>Address *</label>
+<textarea name="Address" required></textarea>
 
-      <label>City *</label>
-      <input type="text" name="city">
-    </div>
+<label>City *</label>
+<input name="City" required>
 
-    <label>Exam Preparing For *</label>
-    <input type="text" name="exam" placeholder="NEET, UPSC, CA, JEE" required>
+<label>Exam Preparing for *</label>
+<input name="Exam Preparing for" required placeholder="NEET, UPSC, CA, JEE, Banking, SSC, HSC...">
 
-    <label>Preferred Branch *</label>
-    <select name="branch" required>
-      <option value="">Select</option>
-      <option>Dombivli West</option>
-      <option>Dombivli East (MIDC)</option>
-    </select>
+<label>Preferred Branch *</label>
+<select id="branch" name="Preferred Branch" required>
+  <option value="">Select</option>
+  <option>Dombivli East (MIDC)</option>
+  <option>Dombivli West</option>
+</select>
 
-    <label>Preferred Plan *</label>
-    <select name="plan" required>
-      <option value="">Select</option>
-      <option>Max Plan – Full Day</option>
-      <option>Light Plan – Morning Slot</option>
-      <option>Light Plan – Afternoon Slot</option>
-      <option>Light Plan – Evening Slot</option>
-      <option>Light flexi Plan - Morning + Afternoon Slot</option>
-      <option>Light flexi Plan - Morning + Evening Slot</option>
-      <option>Light flexi Plan - Afternoon + Evening Slot</option>
-      <option>Weekend - Only Saturday & Sunday</option>
-      <option>Mini Plan - Morning Slot</option>
-      <option>Mini Plan - Evening Slot</option>
-      <option>Single Day Plan - Full Day</option>
-    </select>
+<label>Preferred Plan *</label>
+<select id="plan" name="Preferred Plan" required>
+  <option value="">Select</option>
+  <option>Max Plan – Full Day</option>
+  <option>Light Plan – Morning Slot</option>
+  <option>Light Plan – Afternoon Slot</option>
+  <option>Light Plan – Evening Slot</option>
+  <option>Light flexi Plan - Morning + Afternoon Slot</option>
+  <option>Light flexi Plan - Morning + Evening Slot</option>
+  <option>Light flexi Plan - Afternoon + Evening Slot</option>
+  <option>Weekend - Only Saturday & Sunday</option>
+  <option>Mini Plan - Morning Slot</option>
+  <option>Mini Plan - Evening Slot</option>
+  <option>Single Day Plan - Full Day</option>
+</select>
 
-    <label>Additional Notes</label>
-    <textarea name="notes" rows="2"></textarea>
+<label>Any specific requirement or message</label>
+<textarea name="Any specific requirement or message"></textarea>
 
-    <button id="submitBtn" type="submit">Submit Subscription Request</button>
-  </div>
+<label>Start Date *</label>
+<input type="date" id="startDate" name="Start Date" required>
+<div id="startDateFormatted" class="helper"></div>
+
+<label>No. of Days to Book *</label>
+<input type="number" id="days" name="No. of Days to Book" required>
+<div id="daysError" class="error"></div>
+
+<label>End Date</label>
+<input id="endDateView" readonly>
+
+<label>Estimated Cost (₹)</label>
+<input id="estView" readonly>
+
+<label>Registration Fees (₹)</label>
+<input id="regView" readonly>
+
+<label>Grand Estimated Cost (₹)</label>
+<input id="grandView" readonly>
+
+<input type="hidden" name="Unit Price">
+<input type="hidden" name="End Date">
+<input type="hidden" name="Estimated Cost">
+<input type="hidden" name="Registration Fees">
+<input type="hidden" name="Grand Estimated Cost">
+
+<button type="submit">Submit Subscription Request</button>
+</div>
 </form>
+
+<div id="successBox" class="success-box" style="display:none">
+  <h2>✅ Thank you!</h2>
+  <p>Your enrolment request has been received.<br>
+     Our team will contact you shortly.</p>
+
+  <!-- ✅ FIXED REDIRECTION -->
+  <button type="button" onclick="window.location.href='index.html'">
+    Go to Home Page
+  </button>
+</div>
+
 </div>
 
 <script>
 const memberType = document.getElementById("memberType");
-const formFields = document.getElementById("formFields");
-const firstTimeOnly = document.getElementById("firstTimeOnly");
+const mainFields = document.getElementById("mainFields");
+const mobile = document.getElementById("mobile");
+const mobileError = document.getElementById("mobileError");
+const branch = document.getElementById("branch");
+const plan = document.getElementById("plan");
+const startDate = document.getElementById("startDate");
+const startDateFormatted = document.getElementById("startDateFormatted");
+const days = document.getElementById("days");
+const daysError = document.getElementById("daysError");
+const form = document.getElementById("enrollForm");
+
+startDate.min = new Date().toISOString().split("T")[0];
+
+function formatDate(d){
+  return d.toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"});
+}
+
+startDate.addEventListener("change", () => {
+  if(startDate.value){
+    startDateFormatted.textContent = formatDate(new Date(startDate.value));
+  } else {
+    startDateFormatted.textContent = "";
+  }
+});
+
+mobile.addEventListener("input", () => {
+  mobile.value = mobile.value.replace(/\D/g,'');
+  mobileError.textContent =
+    mobile.value.length !== 10 ? "Mobile number must be exactly 10 digits" : "";
+});
 
 memberType.addEventListener("change", () => {
-  if (!memberType.value) {
-    formFields.style.display = "none";
+  mainFields.style.display = memberType.value ? "block" : "none";
+});
+
+[branch, plan, startDate, days].forEach(el =>
+  el.addEventListener("change", calculate)
+);
+
+function calculate(){
+  daysError.textContent = "";
+  if(!branch.value || !plan.value || !days.value || !startDate.value) return;
+
+  const d = Number(days.value);
+
+  if(plan.value === "Single Day Plan - Full Day" && d !== 1){
+    daysError.textContent = "Single Day Plan allows only 1 day booking";
+    return;
+  }
+  else if(plan.value === "Weekend - Only Saturday & Sunday" && d % 30 !== 0){
+    daysError.textContent = "Weekend plan allows only multiples of 30 days";
+    return;
+  }
+  else if(plan.value !== "Single Day Plan - Full Day" && d < 8){
+    daysError.textContent = "Minimum booking is 8 days";
     return;
   }
 
-  formFields.style.display = "block";
+  const pricing = {
+    "Dombivli East (MIDC)|Max Plan – Full Day":94,
+    "Dombivli East (MIDC)|Light Plan – Morning Slot":54,
+    "Dombivli East (MIDC)|Light Plan – Afternoon Slot":54,
+    "Dombivli East (MIDC)|Light Plan – Evening Slot":54,
+    "Dombivli East (MIDC)|Light flexi Plan - Morning + Afternoon Slot":74,
+    "Dombivli East (MIDC)|Light flexi Plan - Morning + Evening Slot":74,
+    "Dombivli East (MIDC)|Light flexi Plan - Afternoon + Evening Slot":74,
+    "Dombivli East (MIDC)|Weekend - Only Saturday & Sunday":66.7,
+    "Dombivli East (MIDC)|Mini Plan - Morning Slot":40,
+    "Dombivli East (MIDC)|Mini Plan - Evening Slot":40,
+    "Dombivli East (MIDC)|Single Day Plan - Full Day":250,
+    "Dombivli West|Max Plan – Full Day":60,
+    "Dombivli West|Light Plan – Morning Slot":40,
+    "Dombivli West|Light Plan – Afternoon Slot":40,
+    "Dombivli West|Light Plan – Evening Slot":40,
+    "Dombivli West|Light flexi Plan - Morning + Afternoon Slot":50,
+    "Dombivli West|Light flexi Plan - Morning + Evening Slot":50,
+    "Dombivli West|Light flexi Plan - Afternoon + Evening Slot":50,
+    "Dombivli West|Weekend - Only Saturday & Sunday":42.7,
+    "Dombivli West|Mini Plan - Morning Slot":25,
+    "Dombivli West|Mini Plan - Evening Slot":25,
+    "Dombivli West|Single Day Plan - Full Day":150
+  };
 
-  if (memberType.value === "First Time") {
-    firstTimeOnly.style.display = "block";
-    firstTimeOnly.querySelectorAll("input, textarea")
-      .forEach(el => el.required = true);
-  } else {
-    firstTimeOnly.style.display = "none";
-    firstTimeOnly.querySelectorAll("input, textarea")
-      .forEach(el => el.required = false);
-  }
-});
+  const unit = pricing[`${branch.value}|${plan.value}`];
+  const s = new Date(startDate.value);
+  const e = new Date(s);
+  e.setDate(s.getDate() + d - 1);
 
-/* SUBMIT HANDLER */
-const form = document.getElementById("enrollForm");
-const btn = document.getElementById("submitBtn");
-const box = document.getElementById("mainBox");
+  const est = unit * d;
+  const reg = memberType.value === "First Time" ? 175 : 0;
+  const grand = est + reg;
 
-form.addEventListener("submit", function(e){
+  endDateView.value = formatDate(e);
+  estView.value = est;
+  regView.value = reg;
+  grandView.value = grand;
+
+  form["Unit Price"].value = unit;
+  form["End Date"].value = e.toISOString().split("T")[0];
+  form["Estimated Cost"].value = est;
+  form["Registration Fees"].value = reg;
+  form["Grand Estimated Cost"].value = grand;
+}
+
+form.addEventListener("submit", e => {
   e.preventDefault();
-  btn.disabled = true;
-  btn.innerText = "Submitting...";
+  if(mobile.value.length !== 10 || daysError.textContent) return;
 
-  fetch("https://script.google.com/macros/s/AKfycbwF_8R8AKgr2MApLGvStZBlobgcBhVaF2k8K2egOZBCBDPLN5--cPNP4poQ7LiUUGy6sg/exec", {
-    method: "POST",
-    body: new FormData(form)
+  fetch("https://script.google.com/macros/s/AKfycby-stYcFCHWOJWPebMMMnkwPCuw08XJY1CffLiK5P-Octo840UnEK1xJmePS0K6ln1bKA/exec", {
+    method:"POST",
+    body:new FormData(form)
   })
-  .then(res => res.json())
-  .then(data => {
-    if (data.status === "success") {
-      box.innerHTML = `
-        <div class="success-message">
-          ✅ <strong>Thank you!</strong><br><br>
-          Your enrolment request has been received.<br>
-          Our team will contact you shortly.<br>
-          <a href="index.html" class="home-btn">Go to Home Page</a>
-        </div>`;
-    } else {
-      throw new Error();
-    }
-  })
-  .catch(() => {
-    btn.disabled = false;
-    btn.innerText = "Submit Subscription Request";
-    box.insertAdjacentHTML("beforeend",
-      `<div class="error-message">
-        ❌ Submission failed. Please retry or contact Study ZONE.
-      </div>`);
+  .then(()=>{
+    form.style.display="none";
+    formTitle.style.display="none";
+    successBox.style.display="block";
   });
 });
 </script>
+
 </body>
 </html>
