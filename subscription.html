@@ -14,92 +14,98 @@
     --text-main: #334155;
   }
 
-  /* Prevent horizontal scroll globally */
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
+  /* CRITICAL: Prevent all page-level scrolling */
+  html, body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Fixes the screen in place */
     font-family: "Inter", "Segoe UI", Roboto, sans-serif;
     background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
     color: var(--text-main);
     line-height: 1.5;
-    overflow-x: hidden; /* Safety against horizontal scroll */
   }
 
+  /* The main wrapper that fills the screen exactly */
   .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-    padding: 15px;
+    box-sizing: border-box;
+    padding: 10px;
   }
 
-  /* Header Bar */
+  /* Fixed Header */
   .top-bar {
+    flex-shrink: 0; /* Prevents header from shrinking */
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
-    padding: 15px 20px;
+    padding: 12px 15px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(30, 58, 138, 0.2);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .header-info h1 {
     margin: 0;
-    font-size: clamp(18px, 4vw, 22px); /* Fluid font size */
+    font-size: clamp(16px, 4vw, 20px);
     color: #ffffff;
   }
 
   .back-btn {
     background: rgba(255, 255, 255, 0.2);
     color: #fff;
-    padding: 8px 14px;
+    padding: 6px 12px;
     border-radius: 6px;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     border: 1px solid rgba(255, 255, 255, 0.3);
     white-space: nowrap;
-    transition: 0.3s;
   }
 
-  .back-btn:hover {
-    background: #fff;
-    color: var(--primary);
-  }
-
-  /* Branch Select */
+  /* Fixed Selector */
   .branch-select {
+    flex-shrink: 0;
     background: #ffffff;
-    padding: 15px;
+    padding: 12px;
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .branch-select label {
     display: block;
     font-weight: 600;
-    margin-bottom: 10px;
-    font-size: 14px;
+    margin-bottom: 8px;
+    font-size: 13px;
   }
 
   select {
     width: 100%;
     max-width: 300px;
-    padding: 10px;
+    padding: 8px;
     font-size: 14px;
     border-radius: 8px;
     border: 2px solid #e2e8f0;
-    background-color: #fff;
   }
 
-  /* Content Animation */
+  /* SCROLLABLE CONTENT AREA (Only this part moves) */
+  .scroll-area {
+    flex-grow: 1;
+    overflow-y: auto; /* Allows vertical scrolling inside the box only */
+    overflow-x: hidden;
+    padding-bottom: 20px;
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+  }
+
   .content {
     display: none;
     animation: fadeIn 0.4s ease-in-out;
@@ -110,13 +116,12 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Table Design */
   .card {
     background: #ffffff;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   table {
@@ -127,22 +132,21 @@
   th {
     background: #f8fafc;
     color: var(--primary);
-    padding: 12px;
-    font-size: 13px;
+    padding: 10px;
+    font-size: 12px;
     text-align: left;
     border-bottom: 2px solid #e2e8f0;
   }
 
   td {
-    padding: 12px;
+    padding: 10px;
     border-bottom: 1px solid #f1f5f9;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .plan { font-weight: 700; color: #1e293b; }
   .fees { font-weight: 700; color: var(--accent); }
 
-  /* Info Grid */
   .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -158,7 +162,7 @@
 
   .section h2 {
     margin-top: 0;
-    font-size: 15px;
+    font-size: 14px;
     color: var(--primary);
     border-left: 4px solid var(--secondary);
     padding-left: 10px;
@@ -166,49 +170,39 @@
 
   ul {
     padding-left: 20px;
-    font-size: 13px;
+    font-size: 12px;
     color: #475569;
-    margin-bottom: 0;
+    margin: 0;
   }
 
-  ul li { margin-bottom: 6px; }
+  ul li { margin-bottom: 5px; }
 
-  /* MOBILE OPTIMIZATION (No Horizontal Scroll) */
+  /* MOBILE TABLE OPTIMIZATION */
   @media (max-width: 600px) {
-    .top-bar {
-      flex-direction: column;
-      text-align: center;
-      gap: 12px;
-      padding: 15px;
-    }
-
-    /* Force Table to be Responsive Cards */
-    table, thead, tbody, th, td, tr { 
-      display: block; 
-    }
+    .top-bar { padding: 10px; }
     
+    table, thead, tbody, th, td, tr { display: block; }
     thead tr { position: absolute; top: -9999px; left: -9999px; }
-    
-    tr { border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 10px; padding: 5px; }
+    tr { border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 8px; padding: 5px; }
     
     td {
       border: none;
       position: relative;
-      padding-left: 50%; 
+      padding-left: 45%; 
       text-align: right;
+      min-height: 25px;
     }
     
     td:before {
       position: absolute;
-      left: 12px;
-      width: 45%;
+      left: 10px;
+      width: 40%;
       white-space: nowrap;
       text-align: left;
       font-weight: bold;
       color: var(--primary);
     }
 
-    /* Column Labels for Mobile */
     td:nth-of-type(1):before { content: "Plan"; }
     td:nth-of-type(2):before { content: "Slots"; }
     td:nth-of-type(3):before { content: "Fees"; }
@@ -223,7 +217,7 @@
     <div class="header-info">
       <h1>Subscription Plans</h1>
     </div>
-    <a href="index.html" class="back-btn">Back to Home</a>
+    <a href="index.html" class="back-btn">Back</a>
   </header>
 
   <div class="branch-select">
@@ -235,73 +229,75 @@
     </select>
   </div>
 
-  <div class="content" id="plansSection">
-    
-    <div class="card">
-      <table>
-        <thead>
-          <tr>
-            <th>Plan Name</th>
-            <th>Time Slots</th>
-            <th>30 Days (₹)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="plan">Max Plan</td>
-            <td>7:00 AM – 10:00 PM</td>
-            <td class="fees" id="maxPlan"></td>
-          </tr>
-          <tr>
-            <td class="plan">Light Plan</td>
-            <td>Any one slot</td>
-            <td class="fees" id="lightPlan"></td>
-          </tr>
-          <tr>
-            <td class="plan">Light Flexi</td>
-            <td>Any two slots</td>
-            <td class="fees" id="flexiPlan"></td>
-          </tr>
-          <tr>
-            <td class="plan">Mini Plan</td>
-            <td>7–9 AM or 8–10 PM</td>
-            <td class="fees" id="miniPlan"></td>
-          </tr>
-          <tr>
-            <td class="plan">Single Day</td>
-            <td>7:00 AM – 10:00 PM</td>
-            <td class="fees" id="singleDay"></td>
-          </tr>
-          <tr>
-            <td class="plan">Weekend</td>
-            <td>Sat & Sun (Full Day)</td>
-            <td class="fees" id="weekend"></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="info-grid">
-      <div class="section">
-        <h2>Light Plan Slot Times</h2>
-        <ul>
-          <li><strong>Morning:</strong> 7:00 AM – 12:00 PM</li>
-          <li><strong>Afternoon:</strong> 12:00 PM – 5:00 PM</li>
-          <li><strong>Evening:</strong> 5:00 PM – 10:00 PM</li>
-        </ul>
+  <div class="scroll-area">
+    <div class="content" id="plansSection">
+      
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Plan Name</th>
+              <th>Time Slots</th>
+              <th>30 Days (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="plan">Max Plan</td>
+              <td>7:00 AM – 10:00 PM</td>
+              <td class="fees" id="maxPlan"></td>
+            </tr>
+            <tr>
+              <td class="plan">Light Plan</td>
+              <td>Any one slot</td>
+              <td class="fees" id="lightPlan"></td>
+            </tr>
+            <tr>
+              <td class="plan">Light Flexi</td>
+              <td>Any two slots</td>
+              <td class="fees" id="flexiPlan"></td>
+            </tr>
+            <tr>
+              <td class="plan">Mini Plan</td>
+              <td>7–9 AM or 8–10 PM</td>
+              <td class="fees" id="miniPlan"></td>
+            </tr>
+            <tr>
+              <td class="plan">Single Day</td>
+              <td>7:00 AM – 10:00 PM</td>
+              <td class="fees" id="singleDay"></td>
+            </tr>
+            <tr>
+              <td class="plan">Weekend</td>
+              <td>Sat & Sun (Full Day)</td>
+              <td class="fees" id="weekend"></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <div class="section">
-        <h2>Notes & Guidelines</h2>
-        <ul>
-          <li>Entry and exit must follow selected slots.</li>
-          <li>Slot changes require management approval.</li>
-          <li>Single Day Plan requires advance booking.</li>
-          <li>For new members, one-time registration is mandatory.</li>
-        </ul>
-      </div>
-    </div>
+      <div class="info-grid">
+        <div class="section">
+          <h2>Light Plan Slot Times</h2>
+          <ul>
+            <li><strong>Morning:</strong> 7:00 AM – 12:00 PM</li>
+            <li><strong>Afternoon:</strong> 12:00 PM – 5:00 PM</li>
+            <li><strong>Evening:</strong> 5:00 PM – 10:00 PM</li>
+          </ul>
+        </div>
 
+        <div class="section">
+          <h2>Notes & Guidelines</h2>
+          <ul>
+            <li>Entry and exit must follow selected slots.</li>
+            <li>Slot changes require management approval.</li>
+            <li>Single Day Plan requires advance booking.</li>
+            <li>For new members, registration is mandatory.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 
@@ -335,7 +331,9 @@ function showPlans() {
   document.getElementById("weekend").innerText = data.week;
 
   section.style.display = "block";
-  window.scrollTo({ top: section.offsetTop - 20, behavior: 'smooth' });
+  
+  // Scans internal scroll area only
+  document.querySelector('.scroll-area').scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 
